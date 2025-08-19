@@ -1,0 +1,240 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color primario - Rosa */
+  --color-primary: #DF0A38;
+  --color-primary-50: #FCCFD9;
+  --color-primary-100: #FCCFD9;
+  --color-primary-200: #FCCFD9;
+  --color-primary-300: #EE6B88;
+  --color-primary-400: #EE6B88;
+  --color-primary-500: #DF0A38;
+  --color-primary-600: #DF0A38;
+  --color-primary-700: #DF0A38;
+  --color-primary-800: #260007;
+  --color-primary-900: #260007;
+  --color-primary-950: #260007;
+
+  /* Color secundario - Verde */
+  --color-secondary: #007C28;
+  --color-secondary-50: #D9FCE5;
+  --color-secondary-100: #D9FCE5;
+  --color-secondary-200: #9BF6B9;
+  --color-secondary-300: #9BF6B9;
+  --color-secondary-400: #9BF6B9;
+  --color-secondary-500: #007C28;
+  --color-secondary-600: #007C28;
+  --color-secondary-700: #007C28;
+  --color-secondary-800: #00260C;
+  --color-secondary-900: #00260C;
+  --color-secondary-950: #00260C;
+
+  /* Color terciario - Amarillo */
+  --color-tertiary: #F7F33A;
+  --color-tertiary-50: #FFFED9;
+  --color-tertiary-100: #FFFED9;
+  --color-tertiary-200: #F8F69A;
+  --color-tertiary-300: #F8F69A;
+  --color-tertiary-400: #F7F33A;
+  --color-tertiary-500: #F7F33A;
+  --color-tertiary-600: #F7F33A;
+  --color-tertiary-700: #F7F33A;
+  --color-tertiary-800: #2B2A01;
+  --color-tertiary-900: #2B2A01;
+  --color-tertiary-950: #2B2A01;
+
+  /* Color acento - Morado */
+  --color-accent: #A65FBC;
+  --color-accent-50: #F9E4FF;
+  --color-accent-100: #F9E4FF;
+  --color-accent-200: #E69FFD;
+  --color-accent-300: #E69FFD;
+  --color-accent-400: #A65FBC;
+  --color-accent-500: #A65FBC;
+  --color-accent-600: #A65FBC;
+  --color-accent-700: #A65FBC;
+  --color-accent-800: #22002B;
+  --color-accent-900: #22002B;
+  --color-accent-950: #22002B;
+
+  /* Gradientes personalizados - Versión clara */
+  --color-gradient-light-start: #FFFFFF;
+  --color-gradient-light-end: #91E7FF;
+  
+  /* Gradientes personalizados - Versión oscura */
+  --color-gradient-dark-start: #007B74;
+  --color-gradient-dark-end: #004A5E;
+
+  /* Escala de grises */
+  --color-gray-50: #FFFFFF;
+  --color-gray-100: #DBDBDB;
+  --color-gray-200: #DBDBDB;
+  --color-gray-300: #999999;
+  --color-gray-400: #999999;
+  --color-gray-500: #666666;
+  --color-gray-600: #666666;
+  --color-gray-700: #333333;
+  --color-gray-800: #333333;
+  --color-gray-900: #000000;
+  --color-gray-950: #000000;
+
+  /* Colores de estado */
+  --color-success: #10B981;
+  --color-error: #EF4444;
+  --color-warning: #F59E0B;
+  --color-info: #3B82F6;
+  --color-warning: #f59e0b;
+  --color-info: #3b82f6;
+
+  /* Typography */
+  --font-family-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  --font-size-6xl: 3.75rem;
+  --font-size-7xl: 4.5rem;
+  --font-size-8xl: 6rem;
+  --font-size-9xl: 8rem;
+
+  --line-height-none: 1;
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+
+  --font-weight-thin: 100;
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  /* Spacing */
+  --spacing-px: 1px;
+  --spacing-0: 0px;
+  --spacing-0-5: 0.125rem;
+  --spacing-1: 0.25rem;
+  --spacing-1-5: 0.375rem;
+  --spacing-2: 0.5rem;
+  --spacing-2-5: 0.625rem;
+  --spacing-3: 0.75rem;
+  --spacing-3-5: 0.875rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-7: 1.75rem;
+  --spacing-8: 2rem;
+  --spacing-9: 2.25rem;
+  --spacing-10: 2.5rem;
+  --spacing-11: 2.75rem;
+  --spacing-12: 3rem;
+  --spacing-14: 3.5rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+  --spacing-28: 7rem;
+  --spacing-32: 8rem;
+  --spacing-36: 9rem;
+  --spacing-40: 10rem;
+  --spacing-44: 11rem;
+  --spacing-48: 12rem;
+  --spacing-52: 13rem;
+  --spacing-56: 14rem;
+  --spacing-60: 15rem;
+  --spacing-64: 16rem;
+  --spacing-72: 18rem;
+  --spacing-80: 20rem;
+  --spacing-96: 24rem;
+
+  /* Border radius */
+  --radius-none: 0px;
+  --radius-sm: 0.125rem;
+  --radius-DEFAULT: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-DEFAULT: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  --shadow-none: 0 0 #0000;
+
+  /* Breakpoints */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+/* Clases de gradientes personalizados */
+@layer utilities {
+  .bg-gradient-light {
+    background: linear-gradient(to right, var(--color-gradient-light-start), var(--color-gradient-light-end));
+  }
+  
+  .bg-gradient-light-to-b {
+    background: linear-gradient(to bottom, var(--color-gradient-light-start), var(--color-gradient-light-end));
+  }
+  
+  .bg-gradient-light-to-br {
+    background: linear-gradient(to bottom right, var(--color-gradient-light-start), var(--color-gradient-light-end));
+  }
+  
+  .bg-gradient-light-to-bl {
+    background: linear-gradient(to bottom left, var(--color-gradient-light-start), var(--color-gradient-light-end));
+  }
+  
+  .bg-gradient-dark {
+    background: linear-gradient(to right, var(--color-gradient-dark-start), var(--color-gradient-dark-end));
+  }
+  
+  .bg-gradient-dark-to-b {
+    background: linear-gradient(to bottom, var(--color-gradient-dark-start), var(--color-gradient-dark-end));
+  }
+  
+  .bg-gradient-dark-to-br {
+    background: linear-gradient(to bottom right, var(--color-gradient-dark-start), var(--color-gradient-dark-end));
+  }
+  
+  .bg-gradient-dark-to-bl {
+    background: linear-gradient(to bottom left, var(--color-gradient-dark-start), var(--color-gradient-dark-end));
+  }
+
+  /* Gradientes adicionales combinando con colores existentes */
+  .bg-gradient-light-primary {
+    background: linear-gradient(to right, var(--color-gradient-light-start), var(--color-primary-500));
+  }
+  
+  .bg-gradient-dark-secondary {
+    background: linear-gradient(to right, var(--color-gradient-dark-start), var(--color-secondary-600));
+  }
+  
+  .bg-gradient-light-accent {
+    background: linear-gradient(to bottom right, var(--color-gradient-light-start), var(--color-accent-400));
+  }
+  
+  .bg-gradient-dark-tertiary {
+    background: linear-gradient(to bottom right, var(--color-gradient-dark-start), var(--color-tertiary-500));
+  }
+}
