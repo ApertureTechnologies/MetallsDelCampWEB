@@ -1,1 +1,197 @@
-{"version":3,"caseSensitive":false,"basePath":"","rewrites":{"beforeFiles":[],"afterFiles":[],"fallback":[]},"redirects":[{"source":"/:path+/","destination":"/:path+","permanent":true,"internal":true,"regex":"^(?:\\/((?:[^\\/]+?)(?:\\/(?:[^\\/]+?))*))\\/$"},{"source":"/servicios/asesoramiento-tecnico","destination":"/servicios/gestion-y-documentacion-ambiental","permanent":true,"regex":"^(?!\\/_next)\\/servicios\\/asesoramiento-tecnico(?:\\/)?$"}],"headers":[{"source":"/(.*)","headers":[{"key":"X-Frame-Options","value":"DENY"},{"key":"X-Content-Type-Options","value":"nosniff"},{"key":"Referrer-Policy","value":"strict-origin-when-cross-origin"}],"regex":"^(?:\\/(.*))(?:\\/)?$"}]}
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    },
+    {
+      "source": "/servicios/asesoramiento-tecnico",
+      "destination": "/servicios/gestion-y-documentacion-ambiental",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/servicios/asesoramiento-tecnico(?:/)?$"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ],
+      "regex": "^(?:/(.*))(?:/)?$"
+    }
+  ],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/proyectos/[slug]",
+      "regex": "^/proyectos/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/proyectos/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/servicios/[slug]",
+      "regex": "^/servicios/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/servicios/(?<nxtPslug>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/aviso-legal",
+      "regex": "^/aviso\\-legal(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/aviso\\-legal(?:/)?$"
+    },
+    {
+      "page": "/clientes",
+      "regex": "^/clientes(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/clientes(?:/)?$"
+    },
+    {
+      "page": "/comerciales",
+      "regex": "^/comerciales(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/comerciales(?:/)?$"
+    },
+    {
+      "page": "/contacto",
+      "regex": "^/contacto(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contacto(?:/)?$"
+    },
+    {
+      "page": "/empresa",
+      "regex": "^/empresa(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/empresa(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/gestion-y-documentacion-ambiental",
+      "regex": "^/gestion\\-y\\-documentacion\\-ambiental(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/gestion\\-y\\-documentacion\\-ambiental(?:/)?$"
+    },
+    {
+      "page": "/instalaciones",
+      "regex": "^/instalaciones(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/instalaciones(?:/)?$"
+    },
+    {
+      "page": "/legal/aviso-legal",
+      "regex": "^/legal/aviso\\-legal(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/legal/aviso\\-legal(?:/)?$"
+    },
+    {
+      "page": "/legal/cookies",
+      "regex": "^/legal/cookies(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/legal/cookies(?:/)?$"
+    },
+    {
+      "page": "/legal/privacidad",
+      "regex": "^/legal/privacidad(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/legal/privacidad(?:/)?$"
+    },
+    {
+      "page": "/maquinarias",
+      "regex": "^/maquinarias(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/maquinarias(?:/)?$"
+    },
+    {
+      "page": "/proyectos",
+      "regex": "^/proyectos(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/proyectos(?:/)?$"
+    },
+    {
+      "page": "/residuos",
+      "regex": "^/residuos(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/residuos(?:/)?$"
+    },
+    {
+      "page": "/robots.txt",
+      "regex": "^/robots\\.txt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/robots\\.txt(?:/)?$"
+    },
+    {
+      "page": "/servicios",
+      "regex": "^/servicios(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/servicios(?:/)?$"
+    },
+    {
+      "page": "/sitemap.xml",
+      "regex": "^/sitemap\\.xml(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sitemap\\.xml(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "RSC",
+    "varyHeader": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch",
+    "prefetchHeader": "Next-Router-Prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "Next-Router-Segment-Prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}
