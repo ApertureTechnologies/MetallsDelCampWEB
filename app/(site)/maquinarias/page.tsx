@@ -4,7 +4,7 @@ import { getMaquinarias } from '@/lib/content/loaders';
 
 export const metadata: Metadata = {
   title: 'Maquinaria Industrial - Metalls del Camp',
-  description: 'Descubre nuestra flota de maquinaria especializada para el tratamiento y gestión de residuos metálicos. Tecnología de vanguardia para procesos eficientes.',
+  description: 'Descubre nuestra flota de maquinaria especializada para el tratamiento y gestión de residuos. Tecnología de vanguardia para procesos eficientes.',
 };
 
 export default function MaquinariasPage() {

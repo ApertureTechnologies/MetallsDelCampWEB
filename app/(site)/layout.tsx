@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: '%s | Metalls del Camp',
     default: 'Metalls del Camp - Gestión profesional de residuos',
   },
-  description: 'Gestión profesional de residuos metálicos en la Comunidad Valenciana y Castilla-La Mancha. Soluciones sostenibles para la economía circular.',
+  description: 'Gestión profesional de residuos en la Comunidad Valenciana y Castilla-La Mancha. Soluciones sostenibles para la economía circular.',
 };
 
 interface SiteLayoutProps {

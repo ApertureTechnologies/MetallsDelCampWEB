@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Área Comercial - Metalls del Camp',
-  description: 'Nuestro equipo comercial especializado en gestión de residuos metálicos. Contacta con nosotros para soluciones personalizadas.',
+  description: 'Nuestro equipo comercial especializado en gestión de residuos. Contacta con nosotros para soluciones personalizadas.',
 };
 
 export default function ComercialesPage() {
@@ -56,7 +56,7 @@ export default function ComercialesPage() {
               Área Comercial
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
-              Expertos en gestión de residuos metálicos a tu disposición
+              Expertos en gestión de residuos a tu disposición
             </p>
           </div>
         </div>
@@ -133,7 +133,7 @@ export default function ComercialesPage() {
             <div className="p-6 bg-gray-50 rounded-xl">
               <h3 className="text-xl font-bold text-primary-600 mb-4">Evaluación Gratuita</h3>
               <p className="text-gray-700">
-                Análisis detallado de sus residuos metálicos y propuesta de valorización personalizada sin compromiso.
+                Análisis detallado de sus residuos y propuesta de valorización personalizada sin compromiso.
               </p>
             </div>
             

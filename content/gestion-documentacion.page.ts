@@ -6,10 +6,10 @@ export type GestionDocumentacionPage = {
 };
 
 const gestionDocumentacionPage: GestionDocumentacionPage = {
-  title: "GESTIÓN Y DOCUMENTACIÓN MEDIOAMBIENTAL",
+  title: "TRAMITACIÓN MEDIOAMBIENTAL",
   subtitle: "Especializados en Productores de Residuos del Sector Automoción",
   intro: [
-    "Nuestro servicio de Gestión y Documentación Medioambiental está especialmente diseñado para talleres de automoción, ofreciendo un acompañamiento integral en el cumplimiento de todas las obligaciones legales medioambientales.",
+    "Nuestro servicio de Tramitación Medioambiental está especialmente diseñado para talleres de automoción, ofreciendo un acompañamiento integral en el cumplimiento de todas las obligaciones legales medioambientales.",
     "Garantizamos el cumplimiento de la Ley 7/2022 y toda la normativa autonómica aplicable, proporcionando tranquilidad y seguridad jurídica a nuestros clientes."
   ],
   bloques: [

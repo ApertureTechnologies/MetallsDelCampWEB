@@ -40,7 +40,7 @@ const nextConfig = {
     return [
       {
         source: '/servicios/asesoramiento-tecnico',
-        destination: '/servicios/gestion-y-documentacion-ambiental',
+        destination: '/tramitacion-medioambiental',
         permanent: true,
       },
     ];

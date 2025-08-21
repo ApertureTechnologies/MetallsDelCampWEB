@@ -3,38 +3,30 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Nuestros Clientes - Metalls del Camp',
-  description: 'Casos de éxito y testimonios de nuestros clientes en la gestión de residuos metálicos. Sectores atendidos y resultados obtenidos.',
+  description: 'Casos de éxito y testimonios de nuestros clientes en la gestión de residuos. Sectores atendidos y resultados obtenidos.',
 };
 
 export default function ClientesPage() {
   const sectores = [
     {
+      nombre: "Automoción",
+      descripcion: "Reciclaje de vehículos fuera de uso y componentes",
+      icono: "🚗"
+    },
+    {
       nombre: "Construcción y Demolición",
       descripcion: "Gestión integral de residuos de obras y demoliciones",
-      empresas: 150,
-      toneladas: 12500,
       icono: "🏗️"
     },
     {
       nombre: "Industria Manufacturera",
       descripcion: "Valorización de recortes y materiales de producción",
-      empresas: 85,
-      toneladas: 8900,
       icono: "🏭"
     },
     {
       nombre: "Sector Naval",
       descripcion: "Desguace y reciclaje de embarcaciones",
-      empresas: 35,
-      toneladas: 6200,
       icono: "⚓"
-    },
-    {
-      nombre: "Automoción",
-      descripcion: "Reciclaje de vehículos fuera de uso y componentes",
-      empresas: 95,
-      toneladas: 7800,
-      icono: "🚗"
     }
   ];
 
@@ -81,7 +73,7 @@ export default function ClientesPage() {
               Nuestros Clientes
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
-              Casos de éxito en gestión sostenible de residuos metálicos
+              Casos de éxito en gestión sostenible en el sector de la Automoción.
             </p>
           </div>
         </div>
@@ -100,17 +92,6 @@ export default function ClientesPage() {
                 <div className="text-6xl mb-4">{sector.icono}</div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{sector.nombre}</h3>
                 <p className="text-gray-600 mb-6">{sector.descripcion}</p>
-                
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-500">Empresas:</span>
-                    <span className="font-bold text-primary-600">{sector.empresas}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-500">Toneladas/año:</span>
-                    <span className="font-bold text-secondary-600">{sector.toneladas.toLocaleString()}</span>
-                  </div>
-                </div>
               </div>
             ))}
           </div>
@@ -177,16 +158,10 @@ export default function ClientesPage() {
             ¿Quieres formar parte de nuestros casos de éxito?
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Únete a más de 365 empresas que confían en nosotros para la gestión sostenible de sus residuos metálicos.
+            Únete a más de 10.000 empresas que confían en nosotros para la gestión sostenible de sus residuos.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contacto"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-gray-900 bg-white hover:bg-gray-100 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600"
-            >
-              Solicitar Presupuesto
-            </Link>
+          <div className="flex justify-center">
             <Link
               href="/contacto"
               className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white border-2 border-white hover:bg-white hover:text-gray-900 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600"

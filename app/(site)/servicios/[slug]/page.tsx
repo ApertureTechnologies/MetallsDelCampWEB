@@ -55,7 +55,7 @@ export default async function ServicioPage({ params }: ServicioPageProps) {
               </svg>
             </li>
             <li>
-              <Link href="/servicios" className="hover:text-secondary-700">
+              <Link href="/maquinarias" className="hover:text-secondary-700">
                 Servicios
               </Link>
             </li>
@@ -135,10 +135,10 @@ export default async function ServicioPage({ params }: ServicioPageProps) {
               Solicitar presupuesto
             </Link>
             <Link 
-              href="/servicios"
+              href="/maquinarias"
               className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-primary-600 bg-white border border-primary-600 rounded-lg hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors"
             >
-              Ver todos los servicios
+              Ver maquinaria disponible
             </Link>
           </div>
         </div>

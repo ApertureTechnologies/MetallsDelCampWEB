@@ -31,26 +31,24 @@ export default function Header() {
       href: '/residuos',
     },
     {
-      name: 'Gestión y Documentación Ambiental',
-      href: '/gestion-y-documentacion-ambiental',
+      name: 'Tramitación Medioambiental',
+      href: '/tramitacion-medioambiental',
     },
     {
       name: 'Clientes',
       href: '/clientes',
     },
         {
-      name: 'Proyectos',
+      name: 'Nosotros',
       href: '/proyectos',
       submenu: [
         { name: 'Proyectos', href: '/proyectos' },
-        { name: 'Instalaciones', href: '/instalaciones' },
-        { name: 'Servicios', href: '/servicios' },
         { name: 'Empresa', href: '/empresa' },
         { name: 'Comerciales', href: '/comerciales' }
       ]
     },
     { 
-      name: 'Contacto', 
+      name: 'Atención Personalizada', 
       href: '/contacto' 
     }
   ];

@@ -10,8 +10,8 @@ const siteContent: SiteContent = {
       primaryHref: "/maquinarias",
       secondaryLabel: "Gestión de Residuos",
       secondaryHref: "/residuos",
-      tertiaryLabel: "Gestión y Documentación Ambiental",
-      tertiaryHref: "/contacto"
+      tertiaryLabel: "Tramitación Medioambiental",
+      tertiaryHref: "/tramitacion-medioambiental"
     },
     benefits: [
       {

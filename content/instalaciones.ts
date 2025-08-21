@@ -202,7 +202,7 @@ export const instalaciones: Instalacion[] = [
   {
     slug: "coscollar",
     title: "Depósito Temporal Coscollar",
-    desc: "Instalación de almacenamiento temporal en Coscollar, Aldaia, diseñada para garantizar la trazabilidad y seguridad en el manejo de residuos metálicos.",
+    desc: "Instalación de almacenamiento temporal en Coscollar, Aldaia, diseñada para garantizar la trazabilidad y seguridad en el manejo de residuos.",
     image: "/brand/instalaciones/inst-3.jpg",
     location: {
       address: "Camino de Coscollar, Parcela 127",

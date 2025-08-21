@@ -253,7 +253,7 @@ export default function InstalacionesPage() {
             ¿Quieres visitar nuestras instalaciones?
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Programa una visita y conoce de primera mano nuestros procesos de gestión de residuos metálicos.
+            Programa una visita y conoce de primera mano nuestros procesos de gestión de residuos.
           </p>
           
           <a

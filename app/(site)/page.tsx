@@ -10,7 +10,7 @@ import Philosophy from '@/components/Philosophy';
 
 export const metadata: Metadata = {
   title: 'Inicio',
-  description: 'Gestión profesional de residuos metálicos en la Comunidad Valenciana y Castilla-La Mancha. Metalls del Camp, tu socio en economía circular.',
+  description: 'Gestión profesional de residuos en la Comunidad Valenciana y Castilla-La Mancha. Metalls del Camp, tu socio en economía circular.',
 };
 
 export default function HomePage() {

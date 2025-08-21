@@ -1,27 +1,22 @@
 'use client';
 
-import { getEquipo } from '@/lib/content/loaders';
-
 export default function OrgSummary() {
-  const equipo = getEquipo();
-  const totalEmployees = equipo.getTotalEmployees();
-
   const stats = [
     {
-      label: 'Total Empleados',
-      value: totalEmployees.toString()
+      label: 'Años de experiencia',
+      value: '17'
     },
     {
-      label: 'Directiva',
-      value: (1 + equipo.directiva.length).toString() // Director General + directiva
+      label: 'Equipos instalados',
+      value: '18.000'
     },
     {
-      label: 'Gerencias',
-      value: '2' // Aldaia y El Romeral
+      label: 'Proyectos completados',
+      value: '250+'
     },
     {
-      label: 'Plantas',
-      value: '5' // Instalaciones
+      label: 'Instalaciones',
+      value: '5'
     }
   ];
 

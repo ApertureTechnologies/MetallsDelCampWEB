@@ -1,25 +1,8 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/api/contact/route": "app/api/contact/route.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/robots.txt/route": "app/robots.txt/route.js",
-  "/sitemap.xml/route": "app/sitemap.xml/route.js",
   "/page": "app/page.js",
-  "/(site)/aviso-legal/page": "app/(site)/aviso-legal/page.js",
   "/(site)/clientes/page": "app/(site)/clientes/page.js",
-  "/(site)/comerciales/page": "app/(site)/comerciales/page.js",
+  "/(site)/tramitacion-medioambiental/page": "app/(site)/tramitacion-medioambiental/page.js",
   "/(site)/empresa/page": "app/(site)/empresa/page.js",
-  "/(site)/legal/privacidad/page": "app/(site)/legal/privacidad/page.js",
-  "/(site)/gestion-y-documentacion-ambiental/page": "app/(site)/gestion-y-documentacion-ambiental/page.js",
-  "/(site)/legal/cookies/page": "app/(site)/legal/cookies/page.js",
-  "/(site)/legal/aviso-legal/page": "app/(site)/legal/aviso-legal/page.js",
-  "/(site)/servicios/[slug]/page": "app/(site)/servicios/[slug]/page.js",
-  "/(site)/contacto/page": "app/(site)/contacto/page.js",
-  "/(site)/maquinarias/page": "app/(site)/maquinarias/page.js",
-  "/(site)/page": "app/(site)/page.js",
-  "/(site)/proyectos/page": "app/(site)/proyectos/page.js",
-  "/(site)/residuos/page": "app/(site)/residuos/page.js",
-  "/(site)/servicios/page": "app/(site)/servicios/page.js",
-  "/(site)/instalaciones/page": "app/(site)/instalaciones/page.js",
-  "/(site)/proyectos/[slug]/page": "app/(site)/proyectos/[slug]/page.js"
+  "/(site)/contacto/page": "app/(site)/contacto/page.js"
 }

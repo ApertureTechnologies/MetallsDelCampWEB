@@ -6,15 +6,15 @@ import Philosophy from '@/components/Philosophy';
 
 export const metadata: Metadata = {
   title: 'Nuestra Empresa - Metalls del Camp',
-  description: 'Conoce Metalls del Camp: líderes en gestión sostenible de residuos metálicos. Historia, valores, equipo directivo y compromiso ambiental.',
+  description: 'Conoce Metalls del Camp: líderes en gestión sostenible de residuos. Historia, valores, equipo directivo y compromiso ambiental.',
 };
 
 export default function EmpresaPage() {
   const stats = [
-    { label: 'Años de experiencia', value: '25+' },
-    { label: 'Toneladas anuales', value: '35,000' },
-    { label: 'Clientes activos', value: '365+' },
-    { label: 'Instalaciones', value: '4' },
+    { label: 'Años de experiencia', value: '+17' },
+    { label: 'Equipos Instalados', value: '+18,000' },
+    { label: 'Residuos gestionados', value: '13' },
+    { label: 'Instalaciones', value: '5' },
   ];
 
   const valores = [
@@ -50,7 +50,7 @@ export default function EmpresaPage() {
               Nuestra Empresa
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
-              25 años liderando la gestión sostenible de residuos metálicos
+              17 años liderando la gestión sostenible de residuos
             </p>
           </div>
         </div>
