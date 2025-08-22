@@ -26,16 +26,16 @@ export default function ProyectosPage() {
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {proyectos.map((proyecto) => (
-            <article key={proyecto.slug} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+            <article key={proyecto.slug} className="bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 transform hover:scale-105 border-2 border-gray-100">
               {/* Project Cover */}
-              <div className="relative h-48 bg-secondary-100">
+              <div className="relative h-48 bg-secondary-100 rounded-3xl overflow-hidden">
                 {proyecto.featured && (
-                  <div className="absolute top-4 left-4 bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-medium z-10">
+                  <div className="absolute top-4 left-4 bg-primary-600 text-white px-3 py-1 rounded-3xl text-xs font-medium z-10">
                     Destacado
                   </div>
                 )}
-                <div className="absolute inset-0 flex items-center justify-center text-secondary-400">
-                  <span className="text-lg">{proyecto.title}</span>
+                <div className="absolute inset-0 flex items-center justify-center text-secondary-400 px-4">
+                  <span className="text-sm text-center font-medium">{proyecto.title}</span>
                 </div>
               </div>
               
@@ -94,7 +94,7 @@ export default function ProyectosPage() {
                 
                 <Link 
                   href={`/proyectos/${proyecto.slug}`}
-                  className="inline-flex items-center px-4 py-2 text-sm font-medium text-primary-600 bg-primary-50 rounded-lg hover:bg-primary-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors"
+                  className="inline-flex items-center px-4 py-2 text-sm font-medium text-primary-600 bg-primary-50 rounded-3xl hover:bg-primary-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors"
                 >
                   Ver proyecto
                   <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -107,7 +107,7 @@ export default function ProyectosPage() {
         </div>
 
         {/* Call to Action */}
-        <div className="mt-16 text-center bg-primary-50 rounded-lg p-8">
+        <div className="mt-16 text-center bg-primary-50 rounded-3xl p-8">
           <h2 className="text-2xl font-bold text-secondary-900 mb-4">
             ¿Tienes un proyecto en mente?
           </h2>
@@ -116,7 +116,7 @@ export default function ProyectosPage() {
           </p>
           <Link 
             href="/contacto"
-            className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-primary-600 border border-transparent rounded-lg hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors"
+            className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-primary-600 border border-transparent rounded-3xl hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors"
           >
             Hablemos de tu proyecto
           </Link>

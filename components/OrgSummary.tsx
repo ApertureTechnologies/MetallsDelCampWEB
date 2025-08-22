@@ -36,7 +36,7 @@ export default function OrgSummary() {
           {stats.map((stat, index) => (
             <div 
               key={index}
-              className="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-200"
+              className="bg-white rounded-full px-8 py-10 text-center shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
               <dt className="text-sm font-medium text-gray-500 mb-2">
                 {stat.label}

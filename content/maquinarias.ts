@@ -339,6 +339,315 @@ const maquinarias: Maquinaria[] = [
       warranty: "24 meses"
     },
     category: "Análisis"
+  },
+  // Máquinas adicionales para completar los layouts
+  {
+    slug: "extractor-polvo-ep-200",
+    title: "Extractor de Polvo EP-200",
+    image: "/brand/maq/maq-13.jpg",
+    desc: "Sistema de extracción de polvo industrial para ambientes de trabajo limpios",
+    featured: true,
+    specifications: {
+      capacity: "2000 m³/h",
+      power: "12 kW",
+      dimensions: "2.1 x 1.8 x 2.5 m",
+      weight: "850 kg"
+    },
+    maintenance: {
+      interval: "1200 horas",
+      type: "Preventivo",
+      warranty: "24 meses"
+    },
+    category: "Filtración"
+  },
+  {
+    slug: "soldadora-automatica-sa-300",
+    title: "Soldadora Automática SA-300",
+    image: "/brand/maq/maq-14.jpg",
+    desc: "Equipo de soldadura automática para reparación y fabricación de estructuras metálicas",
+    specifications: {
+      capacity: "300 A",
+      power: "18 kW",
+      dimensions: "1.8 x 1.2 x 1.5 m",
+      weight: "420 kg"
+    },
+    maintenance: {
+      interval: "800 horas",
+      type: "Preventivo",
+      warranty: "18 meses"
+    },
+    category: "Soldadura"
+  },
+  {
+    slug: "mesa-vibradora-mv-150",
+    title: "Mesa Vibradora MV-150",
+    image: "/brand/maq/maq-15.jpg",
+    desc: "Mesa vibradora para clasificación y separación de materiales por densidad",
+    specifications: {
+      capacity: "150 kg/h",
+      power: "8 kW",
+      dimensions: "3.0 x 1.5 x 1.0 m",
+      weight: "650 kg"
+    },
+    maintenance: {
+      interval: "1500 horas",
+      type: "Preventivo",
+      warranty: "12 meses"
+    },
+    category: "Clasificación"
+  },
+  {
+    slug: "horno-fusion-hf-500",
+    title: "Horno de Fusión HF-500",
+    image: "/brand/maq/maq-16.jpg",
+    desc: "Horno industrial para fusión de metales no ferrosos y aleaciones especiales",
+    featured: true,
+    specifications: {
+      capacity: "500 kg",
+      power: "85 kW",
+      dimensions: "2.8 x 2.8 x 3.2 m",
+      weight: "2800 kg"
+    },
+    maintenance: {
+      interval: "600 horas",
+      type: "Preventivo",
+      warranty: "36 meses"
+    },
+    category: "Fusión"
+  },
+  {
+    slug: "detector-metales-dm-400",
+    title: "Detector de Metales DM-400",
+    image: "/brand/maq/maq-17.jpg",
+    desc: "Sistema de detección de metales para control de calidad en líneas de producción",
+    specifications: {
+      capacity: "400 mm apertura",
+      power: "2 kW",
+      dimensions: "1.2 x 0.8 x 1.8 m",
+      weight: "180 kg"
+    },
+    maintenance: {
+      interval: "2000 horas",
+      type: "Preventivo",
+      warranty: "24 meses"
+    },
+    category: "Detección"
+  },
+  {
+    slug: "bomba-hidraulica-bh-750",
+    title: "Bomba Hidráulica BH-750",
+    image: "/brand/maq/maq-18.jpg",
+    desc: "Unidad hidráulica de alta presión para alimentación de equipos industriales",
+    specifications: {
+      capacity: "750 bar",
+      power: "22 kW",
+      dimensions: "1.5 x 1.2 x 1.8 m",
+      weight: "580 kg"
+    },
+    maintenance: {
+      interval: "1000 horas",
+      type: "Preventivo",
+      warranty: "18 meses"
+    },
+    category: "Hidráulico"
+  },
+  {
+    slug: "ventilador-industrial-vi-300",
+    title: "Ventilador Industrial VI-300",
+    image: "/brand/maq/maq-19.jpg",
+    desc: "Sistema de ventilación industrial para extracción de gases y vapores",
+    specifications: {
+      capacity: "3000 m³/h",
+      power: "15 kW",
+      dimensions: "1.8 x 1.8 x 2.2 m",
+      weight: "320 kg"
+    },
+    maintenance: {
+      interval: "1800 horas",
+      type: "Preventivo",
+      warranty: "12 meses"
+    },
+    category: "Ventilación"
+  },
+  {
+    slug: "cortadora-plasma-cp-200",
+    title: "Cortadora Plasma CP-200",
+    image: "/brand/maq/maq-20.jpg",
+    desc: "Sistema de corte por plasma para metales de alta precisión y velocidad",
+    specifications: {
+      capacity: "200 A",
+      power: "25 kW",
+      dimensions: "2.5 x 1.8 x 1.6 m",
+      weight: "750 kg"
+    },
+    maintenance: {
+      interval: "900 horas",
+      type: "Preventivo",
+      warranty: "24 meses"
+    },
+    category: "Corte"
+  },
+  {
+    slug: "elevador-tijera-et-400",
+    title: "Elevador de Tijera ET-400",
+    image: "/brand/maq/maq-21.jpg",
+    desc: "Plataforma elevadora hidráulica para manipulación de cargas pesadas",
+    specifications: {
+      capacity: "4000 kg",
+      power: "5 kW",
+      dimensions: "3.0 x 2.0 x 1.2 m",
+      weight: "1200 kg"
+    },
+    maintenance: {
+      interval: "1200 horas",
+      type: "Preventivo",
+      warranty: "24 meses"
+    },
+    category: "Elevación"
+  },
+  {
+    slug: "compresor-aire-ca-150",
+    title: "Compresor de Aire CA-150",
+    image: "/brand/maq/maq-22.jpg",
+    desc: "Compresor de aire industrial para alimentación de herramientas neumáticas",
+    specifications: {
+      capacity: "150 L/min",
+      power: "11 kW",
+      dimensions: "1.8 x 1.0 x 1.6 m",
+      weight: "450 kg"
+    },
+    maintenance: {
+      interval: "1500 horas",
+      type: "Preventivo",
+      warranty: "18 meses"
+    },
+    category: "Neumático"
+  },
+  {
+    slug: "mezcladora-metales-mm-800",
+    title: "Mezcladora de Metales MM-800",
+    image: "/brand/maq/maq-23.jpg",
+    desc: "Equipo para mezcla homogénea de diferentes tipos de chatarra metálica",
+    specifications: {
+      capacity: "800 kg",
+      power: "20 kW",
+      dimensions: "3.5 x 2.8 x 2.5 m",
+      weight: "1850 kg"
+    },
+    maintenance: {
+      interval: "1100 horas",
+      type: "Preventivo",
+      warranty: "20 meses"
+    },
+    category: "Mezcla"
+  },
+  {
+    slug: "bascula-camiones-bc-60",
+    title: "Báscula para Camiones BC-60",
+    image: "/brand/maq/maq-24.jpg",
+    desc: "Sistema de pesaje para vehículos de carga con alta precisión y durabilidad",
+    specifications: {
+      capacity: "60 toneladas",
+      power: "3 kW",
+      dimensions: "18.0 x 3.5 x 0.5 m",
+      weight: "8500 kg"
+    },
+    maintenance: {
+      interval: "2500 horas",
+      type: "Preventivo",
+      warranty: "36 meses"
+    },
+    category: "Pesaje"
+  },
+  {
+    slug: "transportador-cadena-tc-500",
+    title: "Transportador de Cadena TC-500",
+    image: "/brand/maq/maq-25.jpg",
+    desc: "Sistema de transporte por cadena para materiales pesados y abrasivos",
+    specifications: {
+      capacity: "500 kg/m",
+      power: "18 kW",
+      dimensions: "10.0 x 1.2 x 2.0 m",
+      weight: "2200 kg"
+    },
+    maintenance: {
+      interval: "1300 horas",
+      type: "Preventivo",
+      warranty: "24 meses"
+    },
+    category: "Transporte"
+  },
+  {
+    slug: "molino-martillos-mm-300",
+    title: "Molino de Martillos MM-300",
+    image: "/brand/maq/maq-26.jpg",
+    desc: "Molino de martillos para reducción de tamaño de materiales diversos",
+    specifications: {
+      capacity: "300 kg/h",
+      power: "30 kW",
+      dimensions: "2.8 x 2.2 x 2.5 m",
+      weight: "1650 kg"
+    },
+    maintenance: {
+      interval: "800 horas",
+      type: "Preventivo",
+      warranty: "18 meses"
+    },
+    category: "Molienda"
+  },
+  {
+    slug: "alimentador-vibratorio-av-200",
+    title: "Alimentador Vibratorio AV-200",
+    image: "/brand/maq/maq-27.jpg",
+    desc: "Sistema de alimentación continua para líneas de procesamiento",
+    specifications: {
+      capacity: "200 kg/h",
+      power: "6 kW",
+      dimensions: "4.0 x 1.5 x 1.8 m",
+      weight: "980 kg"
+    },
+    maintenance: {
+      interval: "1600 horas",
+      type: "Preventivo",
+      warranty: "15 meses"
+    },
+    category: "Alimentación"
+  },
+  {
+    slug: "cabina-pintura-cp-400",
+    title: "Cabina de Pintura CP-400",
+    image: "/brand/maq/maq-28.jpg",
+    desc: "Cabina de pintura industrial con sistema de filtración avanzado",
+    specifications: {
+      capacity: "4.0 x 2.5 x 3.0 m",
+      power: "35 kW",
+      dimensions: "5.0 x 3.5 x 4.0 m",
+      weight: "2800 kg"
+    },
+    maintenance: {
+      interval: "1400 horas",
+      type: "Preventivo",
+      warranty: "24 meses"
+    },
+    category: "Pintura"
+  },
+  {
+    slug: "sistema-refrigeracion-sr-150",
+    title: "Sistema de Refrigeración SR-150",
+    image: "/brand/maq/maq-29.jpg",
+    desc: "Unidad de refrigeración industrial para control térmico de procesos",
+    specifications: {
+      capacity: "150 kW frío",
+      power: "42 kW",
+      dimensions: "3.2 x 2.8 x 2.5 m",
+      weight: "1950 kg"
+    },
+    maintenance: {
+      interval: "1700 horas",
+      type: "Preventivo",
+      warranty: "30 meses"
+    },
+    category: "Refrigeración"
   }
 ];
 

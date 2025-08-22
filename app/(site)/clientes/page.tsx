@@ -88,10 +88,10 @@ export default function ClientesPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {sectores.map((sector, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow">
-                <div className="text-6xl mb-4">{sector.icono}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{sector.nombre}</h3>
-                <p className="text-gray-600 mb-6">{sector.descripcion}</p>
+              <div key={index} className="bg-white rounded-full shadow-2xl px-6 py-12 text-center hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-gray-100">
+                <div className="text-6xl mb-6">{sector.icono}</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">{sector.nombre}</h3>
+                <p className="text-gray-600 mb-6 px-2">{sector.descripcion}</p>
               </div>
             ))}
           </div>
@@ -107,22 +107,22 @@ export default function ClientesPage() {
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {testimonios.map((testimonio, index) => (
-              <div key={index} className="bg-gray-50 rounded-2xl p-8 shadow-lg">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-dark-to-br rounded-full flex items-center justify-center text-white text-xl font-bold mr-4">
+              <div key={index} className="bg-gray-50 rounded-full px-8 py-10 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-gray-200">
+                <div className="flex flex-col items-center mb-6">
+                  <div className="w-20 h-20 bg-gradient-dark-to-br rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4">
                     {testimonio.empresa.charAt(0)}
                   </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900">{testimonio.empresa}</h3>
+                  <div className="text-center">
+                    <h3 className="font-bold text-gray-900 mb-1">{testimonio.empresa}</h3>
                     <p className="text-sm text-gray-600">{testimonio.sector}</p>
                   </div>
                 </div>
                 
-                <blockquote className="text-gray-700 italic mb-4">
+                <blockquote className="text-gray-700 italic mb-6 text-center px-2 text-sm">
                   &ldquo;{testimonio.testimonio}&rdquo;
                 </blockquote>
                 
-                <cite className="text-sm text-primary-600 font-semibold not-italic">
+                <cite className="text-xs text-primary-600 font-semibold not-italic text-center block">
                   — {testimonio.contacto}
                 </cite>
               </div>
@@ -140,11 +140,11 @@ export default function ClientesPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {certificaciones.map((cert, index) => (
-              <div key={index} className="bg-white rounded-lg p-4 shadow flex items-center">
-                <svg className="w-6 h-6 text-secondary-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div key={index} className="bg-white rounded-full py-4 px-6 shadow-lg flex items-center justify-center border-2 border-gray-100 hover:shadow-xl hover:scale-105 transition-all duration-300">
+                <svg className="w-6 h-6 text-secondary-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <span className="text-gray-700 font-medium">{cert}</span>
+                <span className="text-gray-700 font-medium text-sm text-center">{cert}</span>
               </div>
             ))}
           </div>

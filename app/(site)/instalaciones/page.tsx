@@ -36,11 +36,11 @@ export default function InstalacionesPage() {
               {instalaciones.slice(0, 1).map((instalacion) => (
                 <article 
                   key={instalacion.slug}
-                  className="bg-white rounded-2xl shadow-xl overflow-hidden"
+                  className="bg-white rounded-full shadow-3xl overflow-hidden border-4 border-primary-100 hover:shadow-4xl transition-all duration-500 transform hover:scale-105"
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                     {/* Imagen */}
-                    <div className="relative h-80 lg:h-96">
+                    <div className="relative h-80 lg:h-96 rounded-l-full overflow-hidden">
                       <Image
                         src={instalacion.image}
                         alt={`Instalación ${instalacion.title}`}

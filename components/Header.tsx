@@ -22,6 +22,17 @@ export default function Header() {
       name: 'Inicio', 
       href: '/' 
     },
+        {
+      name: 'Nosotros',
+      href: '/proyectos',
+      submenu: [
+        { name: 'Proyectos', href: '/proyectos' },
+        { name: 'Empresa', href: '/empresa' },
+        { name: 'Comerciales', href: '/comerciales' },
+        { name: 'Clientes', href: '/clientes' }
+
+      ]
+    },
     {
       name: 'Maquinaria',
       href: '/maquinarias',
@@ -31,21 +42,13 @@ export default function Header() {
       href: '/residuos',
     },
     {
+      name: 'Planta de Filtros',
+      href: '/planta-de-filtros',
+    },
+
+        {
       name: 'Tramitación Medioambiental',
       href: '/tramitacion-medioambiental',
-    },
-    {
-      name: 'Clientes',
-      href: '/clientes',
-    },
-        {
-      name: 'Nosotros',
-      href: '/proyectos',
-      submenu: [
-        { name: 'Proyectos', href: '/proyectos' },
-        { name: 'Empresa', href: '/empresa' },
-        { name: 'Comerciales', href: '/comerciales' }
-      ]
     },
     { 
       name: 'Atención Personalizada', 

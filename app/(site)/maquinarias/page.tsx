@@ -9,8 +9,6 @@ export const metadata: Metadata = {
 
 export default function MaquinariasPage() {
   const allMaquinarias = getMaquinarias();
-  const featuredMaquinarias = allMaquinarias.filter(m => m.featured);
-  const regularMaquinarias = allMaquinarias.filter(m => !m.featured);
 
   return (
     <main className="min-h-screen bg-gray-50">
@@ -46,87 +44,89 @@ export default function MaquinariasPage() {
             </p>
           </div>
 
-          {/* Máquinas Destacadas - Destacadas especialmente */}
-          {featuredMaquinarias.length > 0 && (
-            <div className="mb-16">
-              <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">
-                Equipamiento Destacado
+          {/* Máquinas Destacadas - Bloque 2x2 Ovalado Vertical */}
+          {allMaquinarias.length > 0 && (
+            <div className="mb-20">
+              <h3 className="text-2xl font-bold text-gray-900 text-center mb-10">
+                <span className="inline-block bg-primary-100 text-primary-800 px-6 py-3 rounded-lg">
+                  Maquinaria de Limpieza
+                </span>
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                {featuredMaquinarias.map((maquinaria) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+                {allMaquinarias.slice(0, 4).map((maquinaria) => (
                   <article 
                     key={maquinaria.slug}
-                    className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-primary-100 hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2"
+                    className="bg-white rounded-full shadow-xl overflow-hidden border-4 border-primary-200 hover:shadow-2xl transition-all duration-500 transform hover:scale-105"
+                    style={{ aspectRatio: '3/4' }}
                   >
-                    <div className="relative">
-                      <div className="relative w-full h-64">
+                    <div className="relative w-full h-full rounded-full overflow-hidden">
+                      <div className="absolute inset-0">
                         <Image
                           src={maquinaria.image}
                           alt={maquinaria.title}
                           fill
-                          className="object-cover"
+                          className="object-cover rounded-full"
                           sizes="(max-width: 768px) 100vw, 50vw"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/85 rounded-full"></div>
                       </div>
-                      <div className="absolute top-4 left-4">
-                        <span className="inline-block px-3 py-1 bg-primary-500 text-white text-sm font-semibold rounded-full">
-                          Destacado
+                      
+                      {/* Badge superior */}
+                      <div className="absolute top-6 left-1/2 transform -translate-x-1/2">
+                        <span className="inline-flex items-center px-4 py-2 bg-primary-500 text-white text-sm font-semibold rounded-full shadow-lg">
+                          <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                          Premium
                         </span>
                       </div>
-                      {maquinaria.price && (
-                        <div className="absolute top-4 right-4">
-                          <span className="inline-block px-3 py-1 bg-yellow-500 text-white text-sm font-bold rounded-full">
-                            {maquinaria.price}
-                          </span>
-                        </div>
-                      )}
-                    </div>
-                    
-                    <div className="p-8">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                        {maquinaria.title}
-                      </h3>
-                      <div className="w-16 h-1 bg-primary-500 rounded-full mb-4"></div>
-                      
-                      {maquinaria.desc && (
-                        <p className="text-gray-700 mb-6 leading-relaxed">
-                          {maquinaria.desc}
-                        </p>
-                      )}
 
-                      {maquinaria.specifications && (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                          {maquinaria.specifications.capacity && (
-                            <div className="bg-gray-50 rounded-lg p-3">
-                              <span className="font-semibold text-gray-900 block text-sm">Capacidad</span>
-                              <span className="text-primary-600 font-medium">{maquinaria.specifications.capacity}</span>
-                            </div>
-                          )}
-                          {maquinaria.specifications.power && (
-                            <div className="bg-gray-50 rounded-lg p-3">
-                              <span className="font-semibold text-gray-900 block text-sm">Potencia</span>
-                              <span className="text-primary-600 font-medium">{maquinaria.specifications.power}</span>
-                            </div>
-                          )}
-                          {maquinaria.specifications.dimensions && (
-                            <div className="bg-gray-50 rounded-lg p-3 sm:col-span-2">
-                              <span className="font-semibold text-gray-900 block text-sm">Dimensiones</span>
-                              <span className="text-primary-600 font-medium">{maquinaria.specifications.dimensions}</span>
-                            </div>
-                          )}
-                        </div>
-                      )}
+                      {/* Información central optimizada para formato vertical */}
+                      <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-8 py-12">
+                        <h3 className="text-xl font-bold text-white mb-4 leading-tight">
+                          {maquinaria.title}
+                        </h3>
+                        
+                        {maquinaria.desc && (
+                          <p className="text-white/90 text-sm mb-6 leading-relaxed max-w-xs">
+                            {maquinaria.desc}
+                          </p>
+                        )}
 
-                      <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-                        <span className="text-sm text-gray-500">Equipamiento Premium</span>
-                        <div className="flex items-center space-x-1">
-                          {[...Array(5)].map((_, i) => (
-                            <svg key={i} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                            </svg>
-                          ))}
-                        </div>
+                        {/* Especificaciones en formato vertical */}
+                        {maquinaria.specifications && (
+                          <div className="space-y-3 mb-6">
+                            {maquinaria.specifications.capacity && (
+                              <div className="bg-white/95 backdrop-blur-sm rounded-full py-2 px-4 text-center">
+                                <div className="text-xs font-medium text-gray-600 uppercase tracking-wide">Capacidad</div>
+                                <div className="text-sm font-bold text-gray-900">{maquinaria.specifications.capacity}</div>
+                              </div>
+                            )}
+                            {maquinaria.specifications.power && (
+                              <div className="bg-white/95 backdrop-blur-sm rounded-full py-2 px-4 text-center">
+                                <div className="text-xs font-medium text-gray-600 uppercase tracking-wide">Potencia</div>
+                                <div className="text-sm font-bold text-gray-900">{maquinaria.specifications.power}</div>
+                              </div>
+                            )}
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Footer con categoría */}
+                      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2">
+                        {maquinaria.category && (
+                          <div className="text-center">
+                            <span className="inline-block px-4 py-2 bg-white/95 backdrop-blur-sm text-gray-800 text-sm font-medium rounded-full">
+                              {maquinaria.category}
+                            </span>
+                            <div className="flex items-center justify-center space-x-2 mt-2">
+                              <span className="text-sm text-white/80">Certificado</span>
+                              <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                              </svg>
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </article>
@@ -135,75 +135,124 @@ export default function MaquinariasPage() {
             </div>
           )}
 
-          {/* Resto de Maquinarias */}
-          <div>
-            <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">
-              Equipamiento Adicional
+          {/* Equipamiento Estándar - Bloque 3x3 Ovalado Vertical */}
+          <div className="mb-20">
+            <h3 className="text-2xl font-bold text-gray-900 text-center mb-10">
+              <span className="inline-block bg-secondary-100 text-secondary-800 px-6 py-3 rounded-lg">
+                Contenedores
+              </span>
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {regularMaquinarias.map((maquinaria) => (
+              {allMaquinarias.slice(4, 13).map((maquinaria) => (
                 <article 
                   key={maquinaria.slug}
-                  className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                  className="bg-white rounded-full shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-gray-200"
+                  style={{ aspectRatio: '4/5' }}
                 >
-                  <div className="relative w-full h-48">
-                    <Image
-                      src={maquinaria.image}
-                      alt={maquinaria.title}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                  </div>
-                  
-                  <div className="p-6">
-                    <div className="flex items-center justify-between mb-3">
-                      <h3 className="text-xl font-bold text-gray-900">
+                  <div className="relative w-full h-full rounded-full overflow-hidden">
+                    <div className="absolute inset-0">
+                      <Image
+                        src={maquinaria.image}
+                        alt={maquinaria.title}
+                        fill
+                        className="object-cover rounded-full"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/75 rounded-full"></div>
+                    </div>
+
+                    {/* Contenido central para formato vertical */}
+                    <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-6 py-8">
+                      <h3 className="text-lg font-bold text-white mb-3 leading-tight">
                         {maquinaria.title}
                       </h3>
-                      {maquinaria.price && (
-                        <span className="text-lg font-semibold text-primary-600">
-                          {maquinaria.price}
+                      
+                      {maquinaria.desc && (
+                        <p className="text-white/85 text-xs mb-4 leading-relaxed line-clamp-2 max-w-48">
+                          {maquinaria.desc}
+                        </p>
+                      )}
+
+                      {/* Especificaciones compactas en vertical */}
+                      {maquinaria.specifications && (
+                        <div className="space-y-2 mb-4">
+                          {maquinaria.specifications.capacity && (
+                            <div className="bg-white/90 rounded-full py-1 px-3">
+                              <span className="text-xs text-gray-600">Cap: </span>
+                              <span className="text-xs font-semibold text-gray-900">{maquinaria.specifications.capacity}</span>
+                            </div>
+                          )}
+                          {maquinaria.specifications.power && (
+                            <div className="bg-white/90 rounded-full py-1 px-3">
+                              <span className="text-xs text-gray-600">Pot: </span>
+                              <span className="text-xs font-semibold text-gray-900">{maquinaria.specifications.power}</span>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Categoría en la parte inferior */}
+                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+                      {maquinaria.category && (
+                        <span className="inline-block px-3 py-1 bg-white/90 text-gray-800 text-xs font-medium rounded-full">
+                          {maquinaria.category}
                         </span>
                       )}
                     </div>
-                    
-                    {maquinaria.desc && (
-                      <p className="text-gray-600 mb-4">
-                        {maquinaria.desc}
-                      </p>
-                    )}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
 
-                    {maquinaria.specifications && (
-                      <div className="space-y-2">
-                        {maquinaria.specifications.capacity && (
-                          <div className="flex justify-between text-sm">
-                            <span className="font-medium text-gray-700">Capacidad:</span>
-                            <span className="text-gray-600">{maquinaria.specifications.capacity}</span>
-                          </div>
-                        )}
-                        {maquinaria.specifications.power && (
-                          <div className="flex justify-between text-sm">
-                            <span className="font-medium text-gray-700">Potencia:</span>
-                            <span className="text-gray-600">{maquinaria.specifications.power}</span>
-                          </div>
-                        )}
-                        {maquinaria.specifications.dimensions && (
-                          <div className="flex justify-between text-sm">
-                            <span className="font-medium text-gray-700">Dimensiones:</span>
-                            <span className="text-gray-600">{maquinaria.specifications.dimensions}</span>
-                          </div>
-                        )}
-                      </div>
-                    )}
+          {/* Equipamiento Complementario - Bloque 4x4 Ovalado Vertical Compacto */}
+          <div>
+            <h3 className="text-2xl font-bold text-gray-900 text-center mb-10">
+              <span className="inline-block bg-accent-100 text-accent-800 px-6 py-3 rounded-lg">
+                Autocompactadoras
+              </span>
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {allMaquinarias.slice(13, 29).map((maquinaria) => (
+                <article 
+                  key={maquinaria.slug}
+                  className="bg-white rounded-full shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:scale-105 border border-gray-200"
+                  style={{ aspectRatio: '5/6' }}
+                >
+                  <div className="relative w-full h-full rounded-full overflow-hidden">
+                    <div className="absolute inset-0">
+                      <Image
+                        src={maquinaria.image}
+                        alt={maquinaria.title}
+                        fill
+                        className="object-cover rounded-full"
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 rounded-full"></div>
+                    </div>
 
-                    {maquinaria.category && (
-                      <div className="mt-4 pt-3 border-t border-gray-200">
-                        <span className="inline-block px-3 py-1 text-xs font-medium text-primary-600 bg-primary-50 rounded-full">
+                    {/* Contenido minimalista para formato compacto */}
+                    <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-4">
+                      <h3 className="text-sm font-bold text-white mb-3 leading-tight line-clamp-2">
+                        {maquinaria.title}
+                      </h3>
+
+                      {maquinaria.specifications?.capacity && (
+                        <div className="bg-white/90 rounded-full py-1 px-2 mb-2">
+                          <span className="text-xs font-medium text-gray-900">{maquinaria.specifications.capacity}</span>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Categoría compacta */}
+                    <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2">
+                      {maquinaria.category && (
+                        <span className="inline-block px-2 py-1 bg-white/90 text-gray-700 text-xs font-medium rounded-full">
                           {maquinaria.category}
                         </span>
-                      </div>
-                    )}
+                      )}
+                    </div>
                   </div>
                 </article>
               ))}

@@ -10,9 +10,9 @@ export default function CEOMessage() {
           <h2 id="mensaje-ceo-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
             Compromiso con el Futuro
           </h2>
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+          <div className="bg-white rounded-full shadow-3xl px-12 py-16 md:px-16 md:py-20 border-4 border-primary-100 hover:shadow-4xl transition-all duration-500 transform hover:scale-105">
             <blockquote className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
-              <span className="text-6xl text-primary-500 leading-none block mb-4" aria-hidden="true">&ldquo;</span>
+              <span className="text-6xl text-primary-500 leading-none block mb-4" aria-hidden="true">Logo</span>
               <p className="mb-6">
                 En Metalls del Camp, creemos firmemente que la gestión responsable de residuos no es solo un compromiso ambiental, 
                 sino una responsabilidad hacia las futuras generaciones.

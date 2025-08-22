@@ -71,16 +71,16 @@ export default function ComercialesPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
             {comerciales.map((comercial) => (
-              <div key={comercial.id} className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow">
-                <div className="text-center mb-6">
-                  <div className="w-24 h-24 bg-gradient-light-to-br rounded-full mx-auto mb-4 flex items-center justify-center text-gray-900 text-2xl font-bold">
+              <div key={comercial.id} className="bg-white rounded-full shadow-2xl px-8 py-12 hover:shadow-3xl transition-all duration-500 transform hover:scale-105 border-2 border-gray-100">
+                <div className="text-center mb-8">
+                  <div className="w-28 h-28 bg-gradient-light-to-br rounded-full mx-auto mb-6 flex items-center justify-center text-gray-900 text-3xl font-bold">
                     {comercial.nombre.split(' ').map(n => n[0]).join('')}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{comercial.nombre}</h3>
-                  <p className="text-primary-600 font-semibold">{comercial.cargo}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{comercial.nombre}</h3>
+                  <p className="text-primary-600 font-semibold text-sm">{comercial.cargo}</p>
                 </div>
                 
-                <div className="space-y-3">
+                <div className="space-y-4 text-center">
                   <div className="flex items-center text-gray-700">
                     <svg className="w-5 h-5 mr-3 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

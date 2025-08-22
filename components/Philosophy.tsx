@@ -53,8 +53,8 @@ export default function Philosophy() {
         </div>
 
         {/* Métricas de Impacto */}
-        <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
-          <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">Nuestro Impacto en 2024</h3>
+        <div className="bg-white rounded-full shadow-3xl px-12 py-16 md:px-16 md:py-20 border-4 border-primary-100 hover:shadow-4xl transition-all duration-500 transform hover:scale-105">
+          <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">Nuestro Impacto</h3>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-primary-600 mb-2">15.000+</div>
@@ -65,12 +65,12 @@ export default function Philosophy() {
               <div className="text-gray-600">Tasa de valorización</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-tertiary-600 mb-2">500+</div>
-              <div className="text-gray-600">Empresas colaboradoras</div>
+              <div className="text-3xl md:text-4xl font-bold text-tertiary-600 mb-2">N/A</div>
+              <div className="text-gray-600">Sustituir</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-accent-600 mb-2">12.000</div>
-              <div className="text-gray-600">Toneladas CO₂ evitadas</div>
+              <div className="text-3xl md:text-4xl font-bold text-accent-600 mb-2">N/A</div>
+              <div className="text-gray-600">Sustituir</div>
             </div>
           </div>
         </div>

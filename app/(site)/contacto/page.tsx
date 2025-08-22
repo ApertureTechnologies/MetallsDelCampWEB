@@ -233,13 +233,21 @@ export default function ContactoPage() {
               </div>
             </div>
 
-            {/* Map Placeholder */}
+            {/* Google Maps */}
             <div className="bg-white p-8 rounded-lg shadow-md">
               <h2 className="text-2xl font-bold text-secondary-900 mb-6">
                 Ubicación
               </h2>
-              <div className="aspect-video bg-secondary-100 rounded-lg flex items-center justify-center">
-                <span className="text-secondary-500">Mapa de ubicación</span>
+              <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7419.033986444114!2d-0.4718794880246371!3d39.47154991250412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd60506cb7ae0cd1%3A0xd016cde47aa0dfa7!2sMetalls%20Del%20Camp!5e1!3m2!1ses!2ses!4v1755773228820!5m2!1ses!2ses" 
+                  className="w-full h-full border-0"
+                  allowFullScreen
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Ubicación de Metalls Del Camp"
+                >
+                </iframe>
               </div>
             </div>
 
@@ -250,33 +258,14 @@ export default function ContactoPage() {
               </h2>
               <div className="space-y-2 text-secondary-700">
                 <div className="flex justify-between">
-                  <span>Lunes</span>
+                  <span>De Lunes a Viernes</span>
                   <span>8:30 - 19:00</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Martes</span>
-                  <span>8:30 - 19:00</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Miércoles</span>
-                  <span>8:30 - 19:00</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Jueves</span>
-                  <span>8:30 - 19:00</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Viernes</span>
-                  <span>8:30 - 19:00</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Sábado</span>
+                  <span>Sábados, Domingos y Festivos</span>
                   <span className="text-secondary-500">Cerrado</span>
                 </div>
-                <div className="flex justify-between">
-                  <span>Domingo</span>
-                  <span className="text-secondary-500">Cerrado</span>
-                </div>
+
               </div>
             </div>
           </div>

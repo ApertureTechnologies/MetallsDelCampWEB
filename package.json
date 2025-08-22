@@ -24,6 +24,7 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-hook-form": "^7.62.0",
+    "react-youtube": "^10.1.0",
     "resend": "^6.0.1",
     "zod": "^4.0.17"
   },
@@ -37,6 +38,7 @@
     "@types/node": "^20.19.10",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/react-youtube": "^7.6.2",
     "@vitest/ui": "^3.2.4",
     "eslint": "^9",
     "eslint-config-next": "^15.4.6",

@@ -22,12 +22,12 @@ export default function InstallationsGrid() {
             {instalaciones.slice(0, 1).map((instalacion) => (
               <article 
                 key={instalacion.slug}
-                className="bg-white rounded-2xl shadow-xl overflow-hidden"
+                className="bg-white rounded-full shadow-3xl overflow-hidden border-4 border-primary-100 hover:shadow-4xl transition-all duration-500 transform hover:scale-105"
                 aria-labelledby={`instalacion-${instalacion.slug}-title`}
               >
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                   {/* Imagen */}
-                  <div className="relative h-64 lg:h-80">
+                  <div className="relative h-64 lg:h-80 rounded-l-full overflow-hidden">
                     <Image
                       src={instalacion.image}
                       alt={`Instalación de ${instalacion.title}`}
@@ -78,7 +78,7 @@ export default function InstallationsGrid() {
           {instalaciones.slice(1).map((instalacion) => (
             <article 
               key={instalacion.slug} 
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              className="bg-white rounded-4xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
               aria-labelledby={`instalacion-${instalacion.slug}-title`}
             >
               <div className="relative h-48 bg-gray-200">

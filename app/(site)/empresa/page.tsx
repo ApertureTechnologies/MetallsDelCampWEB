@@ -81,7 +81,7 @@ export default function EmpresaPage() {
             Nuestra Historia
           </h2>
           
-          <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+          <div className="bg-white rounded-full shadow-2xl px-12 py-16 md:px-16 md:py-20 border-2 border-gray-100 hover:shadow-3xl transition-all duration-500 transform hover:scale-105">
             <div className="prose prose-lg mx-auto">
               <p>
                 Desde el año 2008 creamos un nuevo concepto empresarial en tratamiento de desechos.
@@ -111,10 +111,10 @@ export default function EmpresaPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {valores.map((valor, index) => (
-              <div key={index} className="text-center p-6 bg-gray-50 rounded-2xl hover:shadow-lg transition-shadow">
-                <div className="text-6xl mb-4">{valor.icono}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{valor.titulo}</h3>
-                <p className="text-gray-600">{valor.descripcion}</p>
+              <div key={index} className="text-center px-6 py-12 bg-gray-50 rounded-full hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border-2 border-gray-200">
+                <div className="text-6xl mb-6">{valor.icono}</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">{valor.titulo}</h3>
+                <p className="text-gray-600 text-sm px-2">{valor.descripcion}</p>
               </div>
             ))}
           </div>
@@ -154,13 +154,13 @@ export default function EmpresaPage() {
               'Autorización 361/T02/CV',
               'Autorización 1021/G04/CV'
             ].map((cert, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 shadow text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-secondary-400 to-primary-400 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div key={index} className="bg-white rounded-full px-6 py-10 shadow-2xl text-center hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-gray-100">
+                <div className="w-20 h-20 bg-gradient-to-br from-secondary-400 to-primary-400 rounded-full mx-auto mb-6 flex items-center justify-center">
+                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="font-bold text-gray-900">{cert}</h3>
+                <h3 className="font-bold text-gray-900 text-sm px-2">{cert}</h3>
               </div>
             ))}
           </div>

@@ -12,20 +12,20 @@ export default function TramitacionMedioambientalPage() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section - Destacado en verde */}
-      <section className="bg-gradient-to-r from-green-600 to-green-800 text-white py-20 shadow-2xl">
+      {/* Hero Section - Destacado en lila y amarillo */}
+      <section className="bg-gradient-to-r from-accent-600 to-accent-800 text-white py-20 shadow-2xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="inline-block bg-green-500/20 px-6 py-2 rounded-full mb-6">
-              <span className="text-green-100 font-semibold">🌱 Servicio Especializado</span>
+            <div className="inline-block bg-tertiary-400/30 px-6 py-2 rounded-full mb-6 border-2 border-tertiary-400">
+              <span className="text-tertiary-100 font-semibold">⚡ Servicio Especializado</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">
               {title}
             </h1>
-            <p className="text-xl md:text-2xl font-semibold mb-8 text-green-100">
+            <p className="text-xl md:text-2xl font-semibold mb-8 text-accent-100">
               {subtitle}
             </p>
-            <div className="w-24 h-1 bg-green-400 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-tertiary-400 mx-auto rounded-full"></div>
           </div>
         </div>
       </section>
@@ -43,23 +43,23 @@ export default function TramitacionMedioambientalPage() {
         </div>
       </section>
 
-      {/* Bloques de Servicios - Con temática verde */}
-      <section className="py-16 bg-green-50">
+      {/* Bloques de Servicios - Con temática lila y amarilla */}
+      <section className="py-16 bg-accent-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-green-800 mb-4">Nuestros Servicios Especializados</h2>
-            <div className="w-20 h-1 bg-green-500 mx-auto rounded-full"></div>
+            <h2 className="text-3xl font-bold text-accent-800 mb-4">Nuestros Servicios Especializados</h2>
+            <div className="w-20 h-1 bg-tertiary-500 mx-auto rounded-full"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {bloques.map((bloque, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-green-500 hover:border-green-600">
-                <h3 className="text-xl font-bold text-green-800 mb-4">
+              <div key={index} className="bg-white rounded-full px-8 py-12 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 border-4 border-accent-400 hover:border-tertiary-500">
+                <h3 className="text-xl font-bold text-accent-800 mb-6 text-center">
                   {bloque.titulo}
                 </h3>
-                <ul className="space-y-3">
+                <ul className="space-y-4 text-center">
                   {bloque.bullets.map((bullet, bulletIndex) => (
                     <li key={bulletIndex} className="flex items-start">
-                      <svg className="w-5 h-5 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-5 h-5 text-tertiary-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                       <span className="text-gray-700 text-sm leading-relaxed">{bullet}</span>
@@ -72,19 +72,19 @@ export default function TramitacionMedioambientalPage() {
         </div>
       </section>
 
-      {/* CTA Section - Verde destacado */}
-      <section className="py-16 bg-gradient-to-r from-green-600 to-green-800 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-green-600/20"></div>
+      {/* CTA Section - Lila y amarillo destacado */}
+      <section className="py-16 bg-gradient-to-r from-accent-600 to-accent-800 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-accent-600/20"></div>
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 drop-shadow-lg">
             ¿Necesitas ayuda con la tramitación medioambiental de tu taller?
           </h2>
-          <p className="text-xl mb-8 text-green-100">
+          <p className="text-xl mb-8 text-accent-100">
             Contacta con nuestros expertos y garantiza el cumplimiento de toda la normativa aplicable
           </p>
           <a 
             href="/contacto" 
-            className="inline-block bg-white text-green-700 font-bold py-4 px-8 rounded-lg hover:bg-green-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            className="inline-block bg-tertiary-400 text-accent-800 font-bold py-4 px-8 rounded-lg hover:bg-tertiary-300 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
             Contactar Ahora
           </a>

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { FooterLogo } from './Logo';
+import Logo from './Logo';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -107,7 +107,12 @@ export default function Footer() {
           {/* Logo y Créditos */}
           <div className="flex flex-col items-center lg:items-end space-y-6">
             <div className="text-center lg:text-right">
-              <FooterLogo className="h-12 w-auto mb-4" />
+              <Logo 
+                type="blanco" 
+                size="small" 
+                className="h-8 w-auto mb-4"
+                alt="Metalls del Camp"
+              />
             </div>
             
             {/* Made by Aperture */}
@@ -117,10 +122,14 @@ export default function Footer() {
                 <Image
                   src="/brand/aperture-logo.png"
                   alt="Aperture Technologies"
-                  width={80}
-                  height={20}
-                  className="h-5 w-auto opacity-70 hover:opacity-100 transition-opacity"
+                  width={200}
+                  height={50}
+                  className="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity"
                 />
+              </div>
+              <div className="flex items-center space-x-2">
+                <p className="text-xs text-gray-400 mb-2">and</p>
+                <p className="text-xs text-gray-400">gonagb.com</p>
               </div>
             </div>
           </div>

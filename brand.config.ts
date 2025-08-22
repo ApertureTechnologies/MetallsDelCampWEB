@@ -7,29 +7,34 @@ const brandConfig = {
   company: {
     name: "Metalls del Camp",
     tagline: "Gestión integral de residuos industriales",
-    description: "Especialistas en gestión de residuos peligrosos y no peligrosos. Soluciones integrales para industria con más de 15 años de experiencia.",
-    email: "info@metallsdelcamp.com",
-    phone: "+34 977 123 456",
+    description: "Especialistas en gestión de residuos peligrosos y no peligrosos. Soluciones integrales para industria con más de 17 años de experiencia.",
+    email: "info@metallsdelcampslu.es",
+    phone: "+34 961 234 567",
     address: {
-      street: "Carrer de la Indústria, 45",
-      city: "Valencia",
-      postal: "46096",
-      country: "España"
+      street: "Carrer Serra d'Espadà, 6",
+      city: "Aldaia",
+      postal: "46960",
+      country: "España",
+      province: "Valencia"
     },
     business: {
       founded: "2008",
       sector: "Gestión de residuos industriales",
       certifications: [
         "ISO 14001:2015",
+        "ISO 9001:2015", 
+        "ISO 45001:2018",
         "Gestor autorizado CAT-T-GP-08-456",
         "Transportista autorizado T-456-CAT"
       ],
-      employees: "50+",
-      coverage: "Levante, Cataluña y Castilla-La Mancha"
+      employees: "19",
+      coverage: "Comunidad Valenciana y Castilla-La Mancha",
+      locations: "Aldaia (Valencia) y El Romeral (Toledo)"
     },
     social: {
       linkedin: "https://linkedin.com/company/metalls-del-camp",
-      facebook: "https://facebook.com/metallsdelcamp"
+      facebook: "https://facebook.com/metallsdelcamp",
+      twitter: "@metallsdelcamp"
     }
   },
 
@@ -40,7 +45,9 @@ const brandConfig = {
     catalog: catalogUrl,
     technicalDocs: technicalDocsUrl,
     totalInvestment: "€630,000",
-    maintenanceProgram: "Preventivo 24/7"
+    maintenanceProgram: "Preventivo 24/7",
+    totalEquipment: 29,
+    categories: ["Trituradoras", "Prensas", "Separadores", "Equipos de Transporte", "Equipos Auxiliares"]
   },
 
   // === INSTALACIONES Y INFRAESTRUCTURA ===
@@ -49,7 +56,10 @@ const brandConfig = {
     stats: installationsStats,
     logistics: logisticsNetwork,
     totalCapacity: "125,000 t/año",
-    networkCoverage: "4 plantas estratégicas"
+    networkCoverage: "4 plantas estratégicas",
+    mainLocations: ["El Romeral (Toledo)", "Aldaia (Valencia)", "Coscollar (Valencia)", "Burgos (Castilla y León)"],
+    totalArea: "90,000 m²",
+    coveredArea: "45,000 m²"
   },
 
   // === EQUIPO HUMANO ===
@@ -60,28 +70,53 @@ const brandConfig = {
     },
     management: gerencias,
     organizationChart: orgChart,
-    totalEmployees: 15
+    totalEmployees: 19,
+    experienceYears: 251,
+    structure: {
+      management: 5,
+      regional: 6, 
+      technical: 3,
+      operations: 5
+    }
   },
 
   // === CAPACIDADES OPERATIVAS ===
   operations: {
     processing: {
-      wasteTypes: ["Residuos peligrosos", "Metales ferrosos", "Metales no ferrosos", "RAEE", "Aceites usados"],
+      wasteTypes: [
+        "Residuos peligrosos",
+        "Metales ferrosos", 
+        "Metales no ferrosos",
+        "RAEE (Residuos de Aparatos Eléctricos y Electrónicos)",
+        "Aceites usados",
+        "Residuos sanitarios",
+        "Chatarra electrónica",
+        "Baterías y acumuladores",
+        "Filtros industriales",
+        "Residuos de construcción",
+        "Envases contaminados"
+      ],
       totalCapacity: "125,000 t/año",
       facilities: 4,
-      workingHours: "24/7 en plantas principales"
+      workingHours: "L-V: 8:30-19:00",
+      responseTime: "24h",
+      certifiedProcesses: "11 tipos de residuos"
     },
     technology: {
       automation: "Clasificación automática con IA",
       analytics: "Laboratorio propio + análisis XRF",
       digitalization: "Trazabilidad IoT completa",
-      maintenance: "Predictivo con sensores"
+      maintenance: "Predictivo con sensores",
+      equipment: "29 máquinas especializadas",
+      innovation: "I+D+i en economía circular"
     },
     logistics: {
       fleetSize: "12 vehículos ADR",
-      coverage: "500km radio",
+      coverage: "Comunidad Valenciana y Castilla-La Mancha",
       responseTime: "24h",
-      certifications: ["ADR", "OEA", "SQAS"]
+      certifications: ["ADR", "OEA", "SQAS"],
+      routes: "Optimización con IA",
+      tracking: "Seguimiento GPS en tiempo real"
     }
   },
 
@@ -164,7 +199,20 @@ const brandConfig = {
   seo: {
     defaultTitle: "Metalls del Camp - Gestión Integral de Residuos Industriales",
     titleTemplate: "%s | Metalls del Camp",
-    description: "Especialistas en gestión de residuos peligrosos y no peligrosos. 4 instalaciones, 50+ profesionales, 15 años de experiencia en Levante y Cataluña.",
+    description: "Especialistas en gestión de residuos peligrosos y no peligrosos. 4 instalaciones en Valencia y Toledo, 19 profesionales, +17 años de experiencia.",
+    keywords: [
+      "gestión residuos industriales",
+      "residuos peligrosos",
+      "reciclaje metales",
+      "economía circular",
+      "valencia",
+      "toledo",
+      "aldaia",
+      "el romeral",
+      "ISO 14001",
+      "RAEE",
+      "chatarra"
+    ],
     openGraph: {
       type: "website",
       locale: "es_ES",
@@ -194,29 +242,45 @@ export const executiveSummary = {
   infrastructure: {
     facilities: 4,
     totalArea: "90,000 m²",
+    coveredArea: "45,000 m²",
     capacity: "125,000 t/año",
-    investment: "€630,000 en equipamiento"
+    investment: "€630,000 en equipamiento",
+    locations: ["El Romeral (Toledo)", "Aldaia (Valencia)", "Coscollar (Valencia)", "Burgos (Castilla y León)"]
   },
   
   humanResources: {
-    employees: 50,
+    employees: 19,
     experience: "251 años acumulados",
-    management: "19 directivos y mandos intermedios",
-    technical: "31 técnicos especializados"
+    management: "5 directivos",
+    regional: "6 gerentes regionales",
+    technical: "3 técnicos especializados",
+    operations: "5 gerentes operaciones"
   },
   
   technology: {
-    equipment: 12,
-    automation: "IA + IoT",
-    certifications: ["ISO 14001", "ISO 9001", "ISO 45001"],
-    specialization: "Análisis XRF + laboratorio propio"
+    equipment: 29,
+    categories: 5,
+    automation: "IA + IoT + Análisis predictivo",
+    certifications: ["ISO 14001:2015", "ISO 9001:2015", "ISO 45001:2018"],
+    specialization: "Análisis XRF + laboratorio propio",
+    innovation: "Centro I+D+i propio"
   },
   
   coverage: {
-    regions: ["Valencia", "Castellón", "Barcelona", "Madrid"],
-    logistics: "Radio 500km",
+    regions: ["Comunidad Valenciana", "Castilla-La Mancha"],
+    mainCities: ["Valencia", "Toledo", "Aldaia", "El Romeral"],
+    logistics: "Optimización con IA",
     responseTime: "24h",
-    fleet: "12 vehículos ADR"
+    fleet: "12 vehículos ADR",
+    wasteTypes: 11
+  },
+
+  performance: {
+    yearsExperience: 17,
+    wasteProcessed: "125,000 t/año",
+    certifiedProcesses: 11,
+    sustainabilityFocus: "Economía circular",
+    compliance: "100% normativa vigente"
   }
 };
 
