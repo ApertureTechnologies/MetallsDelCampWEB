@@ -1,0 +1,108 @@
+# Page snapshot
+
+```yaml
+- banner:
+  - link "Saltar al contenido principal":
+    - /url: "#main-content"
+  - navigation "Navegación principal":
+    - link "Metalls del Camp - Gestión de residuos":
+      - /url: /
+      - img "Metalls del Camp - Gestión de residuos"
+    - link "Inicio":
+      - /url: /
+    - button "Nosotros":
+      - text: Nosotros
+      - img
+    - menu "Submenu de Nosotros":
+      - link "Proyectos":
+        - /url: /proyectos
+      - link "Empresa":
+        - /url: /empresa
+      - link "Comerciales":
+        - /url: /comerciales
+      - link "Clientes":
+        - /url: /clientes
+    - link "Maquinaria":
+      - /url: /maquinarias
+    - link "Residuos":
+      - /url: /residuos
+    - link "Planta de Filtros":
+      - /url: /planta-de-filtros
+    - link "Tramitación Medioambiental":
+      - /url: /tramitacion-medioambiental
+    - link "Atención Personalizada":
+      - /url: /contacto
+    - button "Abrir menú principal"
+- main:
+  - heading "Tu taller, libre de residuos" [level=1]
+  - paragraph: Recogemos, clasificamos y tratamos residuos peligrosos y no peligrosos con la máxima seguridad y respaldo legal.
+  - paragraph: La correcta recogida de residuos peligrosos en los talleres de automoción es esencial para garantizar seguridad, cumplimiento legal y una gestión responsable, y en Metalls del Camp lo hacemos con los mejores precios del mercado, siendo la empresa que mejor paga el aceite, la chatarra y las baterías.
+  - paragraph: En Metalls del Camp somos gestores finales gracias a nuestra propia planta de filtros, lo que nos permite tener los costes más bajos del sector en el tratamiento de filtros de aceite, combustible y envases contaminados, ofreciendo siempre las mejores condiciones a nuestros clientes.
+  - heading "¿POR QUÉ ELEGIRNOS?" [level=2]
+  - img
+  - heading "Mejores Precios" [level=3]
+  - paragraph: Los mejores precios del mercado por aceites, chatarra y baterías.
+  - img
+  - heading "Gestores Finales" [level=3]
+  - paragraph: Planta propia de filtros garantiza menores costes y mayor control.
+  - img
+  - heading "Infraestructura Propia" [level=3]
+  - paragraph: Flota completa sin depender de terceros.
+  - img
+  - heading "Cumplimiento Legal" [level=3]
+  - paragraph: Todas las licencias y autorizaciones necesarias.
+  - img
+  - heading "Compromiso Total" [level=3]
+  - paragraph: Recogidas puntuales y máxima transparencia.
+  - heading "¿CÓMO LO HACEMOS?" [level=2]
+  - heading "Contamos con:" [level=3]
+  - text: • Camiones cisterna de cualquier tamaño • Furgonetas • Camiones con puerta elevadora de cualquier tonelaje • Autobomba para aceite en camiones híbridos • Portacontenedores • Camión con remolque • Contenedores cadeneros de 5m³ a 14m³ • Contenedores multilift de 14m³ a 40m³ • Camiones equipados con grúa y pinza de pulpo para recogida de materiales a granel
+  - heading "Trabajamos con:" [level=3]
+  - text: • Bidones de 25 • Bidones de 50 • Bidones de 120 • Bidones de 200 • Bidones de 1000 / GRG • Boxes • Sacas • Jaula para paragolpes • Jaula para plancha • Jaula para lunas
+  - heading "Facilitamos:" [level=3]
+  - text: • Cubetas colectoras antiderrames de primera calidad fabricadas bajo pedido
+  - heading "¿Cómo son los servicios con Metalls del Camp?" [level=2]
+  - paragraph: Descubre de primera mano cómo trabajamos y por qué somos la mejor opción
+  - button "Ver Video de Servicios":
+    - img
+    - text: Ver Video de Servicios
+  - heading "Échale un vistazo a nuestros camiones" [level=2]
+  - paragraph: Conoce de cerca nuestra flota especializada en la recogida y transporte de residuos
+  - heading "Camión Campa" [level=3]
+  - paragraph: Especializado en recogida de aceites y residuos líquidos
+  - button "Ver Video Campa":
+    - img
+    - text: Ver Video Campa
+  - heading "Camión Ilyan" [level=3]
+  - paragraph: Especializado en recogida de chatarra y materiales metálicos
+  - button "Ver Video Ilyan":
+    - img
+    - text: Ver Video Ilyan
+- contentinfo:
+  - heading "Direcciones de Instalaciones" [level=3]
+  - paragraph: C/ Serra d'Espada, naves 8 y 10 - 46960 Aldaia
+  - paragraph: (Valencia)
+  - paragraph: C/ de la Horta nº 4, Polígono el Coscollar - 46960
+  - paragraph: Aldaia (Valencia)
+  - paragraph: Ctra. de Lillo a Tembleque, S/N - 45770 El Romeral
+  - paragraph: (Toledo)
+  - heading "Contáctanos" [level=3]
+  - 'link "WhatsApp: 637 718 795"':
+    - /url: https://wa.me/34637718795
+  - 'link "Tel: 96 150 11 10"':
+    - /url: tel:+34961501110
+  - link "recogidas@metallsdelcampslu.es":
+    - /url: mailto:recogidas@metallsdelcampslu.es
+  - img "Metalls del Camp"
+  - paragraph: Made by
+  - img "Aperture Technologies"
+  - paragraph: and
+  - paragraph: gonagb.com
+  - link "Aviso legal":
+    - /url: /aviso-legal
+  - link "Política de privacidad":
+    - /url: /politica-privacidad
+  - link "Política de Cookies":
+    - /url: /politica-cookies
+  - paragraph: Copyright © 2025 METALLS DEL CAMP
+```

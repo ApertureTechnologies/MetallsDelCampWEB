@@ -1,12 +1,106 @@
-import type { Metadata } from 'next';
+'use client';
+
+import { useState } from 'react';
 import brandConfig from '../../../brand.config';
 
-export const metadata: Metadata = {
-  title: 'Contacto',
-  description: `Ponte en contacto con ${brandConfig.company.name}. Estaremos encantados de ayudarte con tu próximo proyecto de metalurgia.`,
-};
-
 export default function ContactoPage() {
+  const [formData, setFormData] = useState({
+    nombre: '',
+    email: '',
+    telefono: '',
+    empresa: '',
+    asunto: '',
+    mensaje: '',
+    privacidad: false,
+    website: '' // honeypot
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target;
+    const checked = type === 'checkbox' ? (e.target as HTMLInputElement).checked : false;
+    
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+    
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: '' }));
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+    
+    if (!formData.nombre.trim()) {
+      newErrors.nombre = 'Por favor, introduce tu nombre';
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = 'Por favor, introduce un email válido';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Por favor, introduce un email válido';
+    }
+    
+    if (!formData.asunto) {
+      newErrors.asunto = 'Por favor, selecciona un asunto';
+    }
+    
+    if (!formData.mensaje.trim()) {
+      newErrors.mensaje = 'Por favor, introduce tu mensaje';
+    }
+    
+    if (!formData.privacidad) {
+      newErrors.privacidad = 'Debes aceptar la política de privacidad';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!validateForm()) return;
+    
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({
+          nombre: '',
+          email: '',
+          telefono: '',
+          empresa: '',
+          asunto: '',
+          mensaje: '',
+          privacidad: false,
+          website: ''
+        });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch {
+      // Error logging removed for production
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <div className="min-h-screen py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,11 +120,13 @@ export default function ContactoPage() {
             <h2 className="text-2xl font-bold text-secondary-900 mb-6">
               Envíanos un mensaje
             </h2>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               {/* Honeypot field - hidden */}
               <input
                 type="text"
                 name="website"
+                value={formData.website}
+                onChange={handleInputChange}
                 tabIndex={-1}
                 autoComplete="off"
                 style={{ position: 'absolute', left: '-9999px' }}
@@ -46,12 +142,14 @@ export default function ContactoPage() {
                     type="text"
                     id="nombre"
                     name="nombre"
+                    value={formData.nombre}
+                    onChange={handleInputChange}
                     required
                     className="w-full px-3 py-2 border border-secondary-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                     aria-describedby="nombre-error"
                   />
-                  <div id="nombre-error" className="mt-1 text-sm text-error hidden" role="alert">
-                    Por favor, introduce tu nombre
+                  <div id="nombre-error" className={`mt-1 text-sm text-error ${errors.nombre ? '' : 'hidden'}`} role="alert">
+                    {errors.nombre || 'Por favor, introduce tu nombre'}
                   </div>
                 </div>
                 
@@ -63,12 +161,14 @@ export default function ContactoPage() {
                     type="email"
                     id="email"
                     name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     required
                     className="w-full px-3 py-2 border border-secondary-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                     aria-describedby="email-error"
                   />
-                  <div id="email-error" className="mt-1 text-sm text-error hidden" role="alert">
-                    Por favor, introduce un email válido
+                  <div id="email-error" className={`mt-1 text-sm text-error ${errors.email ? '' : 'hidden'}`} role="alert">
+                    {errors.email || 'Por favor, introduce un email válido'}
                   </div>
                 </div>
               </div>
@@ -82,6 +182,8 @@ export default function ContactoPage() {
                     type="tel"
                     id="telefono"
                     name="telefono"
+                    value={formData.telefono}
+                    onChange={handleInputChange}
                     className="w-full px-3 py-2 border border-secondary-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   />
                 </div>
@@ -94,6 +196,8 @@ export default function ContactoPage() {
                     type="text"
                     id="empresa"
                     name="empresa"
+                    value={formData.empresa}
+                    onChange={handleInputChange}
                     className="w-full px-3 py-2 border border-secondary-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   />
                 </div>
@@ -106,6 +210,8 @@ export default function ContactoPage() {
                 <select
                   id="asunto"
                   name="asunto"
+                  value={formData.asunto}
+                  onChange={handleInputChange}
                   required
                   className="w-full px-3 py-2 border border-secondary-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   aria-describedby="asunto-error"
@@ -116,6 +222,9 @@ export default function ContactoPage() {
                   <option value="proyecto">Consulta sobre proyecto</option>
                   <option value="otro">Otro</option>
                 </select>
+                <div id="asunto-error" className={`mt-1 text-sm text-error ${errors.asunto ? '' : 'hidden'}`} role="alert">
+                  {errors.asunto || 'Por favor, selecciona un asunto'}
+                </div>
                 <div id="asunto-error" className="mt-1 text-sm text-error hidden" role="alert">
                   Por favor, selecciona un asunto
                 </div>
@@ -128,14 +237,16 @@ export default function ContactoPage() {
                 <textarea
                   id="mensaje"
                   name="mensaje"
+                  value={formData.mensaje}
+                  onChange={handleInputChange}
                   rows={5}
                   required
                   className="w-full px-3 py-2 border border-secondary-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-vertical"
                   placeholder="Cuéntanos más detalles sobre tu consulta o proyecto..."
                   aria-describedby="mensaje-error"
-                ></textarea>
-                <div id="mensaje-error" className="mt-1 text-sm text-error hidden" role="alert">
-                  Por favor, introduce tu mensaje
+                />
+                <div id="mensaje-error" className={`mt-1 text-sm text-error ${errors.mensaje ? '' : 'hidden'}`} role="alert">
+                  {errors.mensaje || 'Por favor, introduce tu mensaje'}
                 </div>
               </div>
               
@@ -144,6 +255,8 @@ export default function ContactoPage() {
                   type="checkbox"
                   id="privacidad"
                   name="privacidad"
+                  checked={formData.privacidad}
+                  onChange={handleInputChange}
                   required
                   className="mt-1 h-4 w-4 text-primary-600 focus:ring-primary-500 border-secondary-300 rounded"
                   aria-describedby="privacidad-error"
@@ -156,20 +269,26 @@ export default function ContactoPage() {
                   *
                 </label>
               </div>
-              <div id="privacidad-error" className="text-sm text-error hidden" role="alert">
-                Debes aceptar la política de privacidad
+              <div id="privacidad-error" className={`text-sm text-error ${errors.privacidad ? '' : 'hidden'}`} role="alert">
+                {errors.privacidad || 'Debes aceptar la política de privacidad'}
               </div>
               
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="w-full bg-primary-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 aria-describedby="submit-status"
               >
-                Enviar mensaje
+                {isSubmitting ? 'Enviando...' : 'Enviar mensaje'}
               </button>
               
-              <div id="submit-status" className="text-sm text-center hidden" role="status" aria-live="polite">
-                {/* Status messages will be shown here */}
+              <div id="submit-status" className={`text-sm text-center ${submitStatus === 'idle' ? 'hidden' : ''}`} role="status" aria-live="polite">
+                {submitStatus === 'success' && (
+                  <div className="text-green-600">¡Mensaje enviado correctamente! Te responderemos pronto.</div>
+                )}
+                {submitStatus === 'error' && (
+                  <div className="text-red-600">Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.</div>
+                )}
               </div>
             </form>
           </div>

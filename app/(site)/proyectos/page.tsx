@@ -4,124 +4,153 @@ import { getProyectos } from '../../../lib/content/loaders';
 
 export const metadata: Metadata = {
   title: 'Nuestros Proyectos',
-  description: 'Descubre los proyectos más destacados que hemos realizado, desde estructuras industriales hasta instalaciones arquitectónicas complejas.',
+  description: 'Descubre los proyectos más destacados que hemos realizado, desde plantas de filtros hasta gestión integral de residuos industriales.',
 };
 
 export default function ProyectosPage() {
   const proyectos = getProyectos();
 
+  const stats = [
+    { label: 'Proyectos Completados', value: '+150' },
+    { label: 'Clientes Satisfechos', value: '+10.000' },
+    { label: 'Años de Experiencia', value: '+17' },
+    { label: 'Instalaciones ', value: '5' },
+  ];
+
+  const especialidades = [
+    {
+      titulo: 'Plantas de Filtros',
+      descripcion: 'Sistemas avanzados de filtración para aguas industriales',
+      icono: '💧'
+    },
+    {
+      titulo: 'Gestión de Residuos',
+      descripcion: 'Soluciones integrales de gestión sostenible',
+      icono: '♻️'
+    },
+    {
+      titulo: 'Tramitación Ambiental',
+      descripcion: 'Gestión completa de permisos y documentación',
+      icono: '📋'
+    },
+    {
+      titulo: 'Tecnología Avanzada',
+      descripcion: 'Innovación aplicada a procesos industriales',
+      icono: '⚡'
+    }
+  ];
+
   return (
-    <div className="min-h-screen py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-secondary-900 mb-6">
-            Nuestros Proyectos
-          </h1>
-          <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
-            Cada proyecto es una oportunidad de demostrar nuestra excelencia en metalurgia. Explore algunos de nuestros trabajos más representativos.
-          </p>
-        </div>
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-green-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Nuestros Proyectos
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Cada proyecto es una oportunidad de demostrar nuestra excelencia en gestión ambiental. Explore algunos de nuestros trabajos más representativos.
+            </p>
+          </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {proyectos.map((proyecto) => (
-            <article key={proyecto.slug} className="bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 transform hover:scale-105 border-2 border-gray-100">
-              {/* Project Cover */}
-              <div className="relative h-48 bg-secondary-100 rounded-3xl overflow-hidden">
-                {proyecto.featured && (
-                  <div className="absolute top-4 left-4 bg-primary-600 text-white px-3 py-1 rounded-3xl text-xs font-medium z-10">
-                    Destacado
+          {/* Cifras en burbujas circulares */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
+            {stats.map((stat, index) => (
+              <div key={index} className="flex justify-center">
+                <div className="bg-white rounded-full shadow-2xl w-48 h-48 flex flex-col items-center justify-center border-4 border-blue-100 hover:shadow-3xl transition-all duration-500 transform hover:scale-105">
+                  <div className="text-3xl font-bold text-blue-600 mb-2">
+                    {stat.value}
                   </div>
-                )}
-                <div className="absolute inset-0 flex items-center justify-center text-secondary-400 px-4">
-                  <span className="text-sm text-center font-medium">{proyecto.title}</span>
+                  <div className="text-gray-600 text-center px-4 font-medium">
+                    {stat.label}
+                  </div>
                 </div>
               </div>
-              
-              {/* Project Content */}
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-3">
-                  <time className="text-sm text-secondary-500">
-                    {new Date(proyecto.date).toLocaleDateString('es-ES', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric'
-                    })}
-                  </time>
-                  {proyecto.duration && (
-                    <span className="text-sm text-secondary-500">
-                      {proyecto.duration}
-                    </span>
-                  )}
+            ))}
+          </div>
+
+          {/* Especialidades en cápsula horizontal */}
+          <div className="bg-gradient-to-r from-green-400 to-blue-400 rounded-full shadow-3xl px-16 py-12 hover:shadow-4xl transition-all duration-500 transform hover:scale-105">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              {especialidades.map((especialidad, index) => (
+                <div key={index} className="text-center text-white">
+                  <div className="text-4xl mb-4">{especialidad.icono}</div>
+                  <h3 className="text-lg font-bold mb-2">{especialidad.titulo}</h3>
+                  <p className="text-sm opacity-90">{especialidad.descripcion}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Proyectos */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Nuestros Proyectos
+            </h2>
+            <p className="text-lg text-gray-600">
+              Proyectos innovadores y de mayor impacto ambiental que hemos desarrollado
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+            {proyectos.map((proyecto) => (
+              <article key={proyecto.slug} className="group relative bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 transform hover:scale-105 border-2 border-gray-100">
+                
+                {/* Project Cover */}
+                <div className="relative h-56 bg-gradient-to-br from-blue-100 to-green-100 overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center text-gray-700 px-6">
+                    <span className="text-lg text-center font-bold">{proyecto.title}</span>
+                  </div>
                 </div>
                 
-                <h2 className="text-xl font-bold text-secondary-900 mb-3">
-                  {proyecto.title}
-                </h2>
-                
-                <p className="text-secondary-600 mb-4 line-clamp-3">
-                  {proyecto.excerpt}
-                </p>
-                
-                {/* Tags */}
-                {proyecto.tags && proyecto.tags.length > 0 && (
-                  <div className="mb-4">
-                    <div className="flex flex-wrap gap-2">
-                      {proyecto.tags.slice(0, 3).map((tag) => (
-                        <span key={tag} className="inline-block bg-accent-100 text-accent-800 text-xs px-2 py-1 rounded">
-                          {tag}
-                        </span>
-                      ))}
-                      {proyecto.tags.length > 3 && (
-                        <span className="inline-block bg-secondary-100 text-secondary-600 text-xs px-2 py-1 rounded">
-                          +{proyecto.tags.length - 3}
-                        </span>
-                      )}
+                {/* Project Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                    {proyecto.title}
+                  </h3>
+                  
+                  <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed">
+                    {proyecto.excerpt}
+                  </p>
+                  
+                  {/* Tags */}
+                  {proyecto.tags && proyecto.tags.length > 0 && (
+                    <div className="mb-4">
+                      <div className="flex flex-wrap gap-2">
+                        {proyecto.tags.slice(0, 3).map((tag) => (
+                          <span key={tag} className="inline-block bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full font-medium">
+                            {tag}
+                          </span>
+                        ))}
+                        {proyecto.tags.length > 3 && (
+                          <span className="inline-block bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">
+                            +{proyecto.tags.length - 3}
+                          </span>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                )}
-                
-                {/* Client & Location */}
-                <div className="text-sm text-secondary-500 mb-4 space-y-1">
-                  {proyecto.client && (
-                    <div>Cliente: {proyecto.client}</div>
                   )}
-                  {proyecto.location && (
-                    <div>Ubicación: {proyecto.location}</div>
-                  )}
+                  
+                  <Link 
+                    href={`/proyectos/${proyecto.slug}`}
+                    className="inline-flex items-center justify-center w-full px-6 py-3 text-sm font-bold text-white bg-gradient-to-r from-blue-600 to-green-600 rounded-full hover:from-blue-700 hover:to-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                  >
+                    Ver proyecto completo
+                    <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
                 </div>
-                
-                <Link 
-                  href={`/proyectos/${proyecto.slug}`}
-                  className="inline-flex items-center px-4 py-2 text-sm font-medium text-primary-600 bg-primary-50 rounded-3xl hover:bg-primary-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors"
-                >
-                  Ver proyecto
-                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
-              </div>
-            </article>
-          ))}
+              </article>
+            ))}
+          </div>
         </div>
-
-        {/* Call to Action */}
-        <div className="mt-16 text-center bg-primary-50 rounded-3xl p-8">
-          <h2 className="text-2xl font-bold text-secondary-900 mb-4">
-            ¿Tienes un proyecto en mente?
-          </h2>
-          <p className="text-secondary-600 mb-6">
-            Nos encantaría conocer tu próximo desafío. Trabajamos junto a nuestros clientes desde la conceptualización hasta la entrega final.
-          </p>
-          <Link 
-            href="/contacto"
-            className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-primary-600 border border-transparent rounded-3xl hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors"
-          >
-            Hablemos de tu proyecto
-          </Link>
-        </div>
-      </div>
+      </section>
     </div>
   );
 }

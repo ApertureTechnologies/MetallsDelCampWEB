@@ -1,4 +1,5 @@
 import { getSiteContent } from '@/lib/content/loaders';
+import Logo from './Logo';
 
 export default function CEOMessage() {
   const siteContent = getSiteContent();
@@ -12,7 +13,14 @@ export default function CEOMessage() {
           </h2>
           <div className="bg-white rounded-full shadow-3xl px-12 py-16 md:px-16 md:py-20 border-4 border-primary-100 hover:shadow-4xl transition-all duration-500 transform hover:scale-105">
             <blockquote className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
-              <span className="text-6xl text-primary-500 leading-none block mb-4" aria-hidden="true">Logo</span>
+              <div className="flex justify-center mb-6">
+                <Logo 
+                  type="completo" 
+                  size="medium" 
+                  className="h-24 w-auto" 
+                  alt="Metalls del Camp"
+                />
+              </div>
               <p className="mb-6">
                 En Metalls del Camp, creemos firmemente que la gestión responsable de residuos no es solo un compromiso ambiental, 
                 sino una responsabilidad hacia las futuras generaciones.

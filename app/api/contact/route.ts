@@ -142,7 +142,7 @@ Fecha: ${new Date().toLocaleString('es-ES')}
     );
 
   } catch (error) {
-    console.error('Contact form error:', error);
+    // Error will be logged by Next.js error handling system
 
     // Handle validation errors
     if (error instanceof z.ZodError) {

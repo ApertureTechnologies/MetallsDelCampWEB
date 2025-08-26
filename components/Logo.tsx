@@ -19,7 +19,7 @@ export default function Logo({
   const logoData = getLogo(type, size);
   
   if (!logoData) {
-    console.warn(`Logo not found for type: ${type}, size: ${size}`);
+    // Logo fallback handled silently
     return null;
   }
 

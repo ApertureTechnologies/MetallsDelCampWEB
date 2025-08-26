@@ -3,6 +3,7 @@ export interface Instalacion {
   title: string;
   desc: string;
   image: string;
+  videoId?: string; // ID del video de YouTube
   location: {
     address: string;
     city: string;
@@ -90,6 +91,7 @@ export const instalaciones: Instalacion[] = [
     title: "Planta Principal El Romeral",
     desc: "Nuestra instalación principal ubicada en El Romeral, Toledo, especializada en la gestión integral de residuos metálicos con tecnología de vanguardia.",
     image: "/brand/instalaciones/inst-1.jpg",
+    videoId: "ONXvXOZNVRg", // INSTALACIONES EL ROMERAL
     location: {
       address: "Carretera CM-4013, Km 8.5",
       city: "El Romeral",
@@ -146,6 +148,7 @@ export const instalaciones: Instalacion[] = [
     title: "Centro Logístico Aldaia",
     desc: "Moderno centro logístico en Aldaia, Valencia, enfocado en la optimización de rutas y distribución eficiente de materiales reciclados.",
     image: "/brand/instalaciones/inst-2.jpg",
+    videoId: "KtGwTvzDJU4", // INSTALACIONES ALDAIA ENCREUATS
     location: {
       address: "Polígono Industrial La Costera, Calle 8, Nave 45",
       city: "Aldaia",
@@ -204,6 +207,7 @@ export const instalaciones: Instalacion[] = [
     title: "Depósito Temporal Coscollar",
     desc: "Instalación de almacenamiento temporal en Coscollar, Aldaia, diseñada para garantizar la trazabilidad y seguridad en el manejo de residuos.",
     image: "/brand/instalaciones/inst-3.jpg",
+    videoId: "DtmOxLUw-r0", // INSTALACIONES EL COSCOLLAR
     location: {
       address: "Camino de Coscollar, Parcela 127",
       city: "Aldaia",
@@ -257,6 +261,7 @@ export const instalaciones: Instalacion[] = [
     title: "Centro de Serra d'Espadà",
     desc: "Centro especializado en gestión integral de residuos ubicado en la Sierra de Espadán, con múltiples autorizaciones medioambientales para el tratamiento de residuos peligrosos y no peligrosos.",
     image: "/brand/instalaciones/inst-4.jpg",
+    videoId: "Vpx_hmx2qPU", // INSTALACIONES SERRA DE ESPADA
     location: {
       address: "Zona Industrial Serra d'Espadà",
       city: "Segorbe",

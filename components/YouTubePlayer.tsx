@@ -48,7 +48,6 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({
   };
 
   const handleReady = (event: YouTubeEvent) => {
-    console.log('✅ Video de YouTube listo para ID:', videoId);
     if (onReady) {
       onReady();
     }
@@ -56,17 +55,14 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({
     // Si autoplay y mute están activados, intentar reproducir
     if (autoplay && mute) {
       try {
-        console.log('🔄 Intentando autoplay...');
         event.target.playVideo();
-        console.log('▶️ Autoplay iniciado');
-      } catch (error) {
-        console.warn('❌ No se pudo reproducir automáticamente:', error);
+      } catch {
+        // Autoplay failed
       }
     }
   };
 
-  const handleError = (event: YouTubeEvent) => {
-    console.error('❌ Error en video de YouTube:', event.data, 'para videoId:', videoId);
+  const handleError = () => {
     if (onError) {
       onError();
     }

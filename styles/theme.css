@@ -83,8 +83,6 @@
   --color-error: #EF4444;
   --color-warning: #F59E0B;
   --color-info: #3B82F6;
-  --color-warning: #f59e0b;
-  --color-info: #3b82f6;
 
   /* Typography */
   --font-family-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -236,5 +234,243 @@
   
   .bg-gradient-dark-tertiary {
     background: linear-gradient(to bottom right, var(--color-gradient-dark-start), var(--color-tertiary-500));
+  }
+
+  /* Estilos del organigrama */
+  .org-connector {
+    position: relative;
+  }
+
+  .org-connector::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    width: 2px;
+    height: 20px;
+    background-color: #9ca3af;
+    transform: translateX(-50%);
+  }
+
+  .org-branch::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    width: 2px;
+    height: 20px;
+    background-color: #9ca3af;
+    transform: translateX(-50%);
+  }
+
+  .org-horizontal-line {
+    position: relative;
+  }
+
+  .org-horizontal-line::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #9ca3af;
+    transform: translateY(-50%);
+    z-index: -1;
+  }
+
+  /* Scrollbar personalizada */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-primary-400);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-600);
+  }
+
+  /* Utilidades adicionales para line-clamp */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+
+  /* Animación Purple Glow para el botón del Hero - SIMPLE Y VISIBLE */
+  .purple-glow-button {
+    position: relative;
+    border: 2px solid #A65FBC;
+    animation: purple-glow-pulse 2s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(166, 95, 188, 0.4);
+  }
+
+  .purple-glow-button:hover {
+    animation: purple-glow-pulse 1s ease-in-out infinite;
+    border-color: #8b4c9b;
+    box-shadow: 0 0 25px rgba(166, 95, 188, 0.8);
+    transform: scale(1.05);
+  }
+
+  /* Utilidades de aspect ratio */
+  .aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+
+  .aspect-3-4 {
+    aspect-ratio: 3 / 4;
+  }
+
+  .aspect-4-5 {
+    aspect-ratio: 4 / 5;
+  }
+
+  .aspect-5-6 {
+    aspect-ratio: 5 / 6;
+  }
+
+  /* Backdrop blur fallback */
+  .backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+}
+
+/* Keyframes para animaciones */
+@keyframes purple-glow-pulse {
+  0% {
+    box-shadow: 0 0 10px rgba(166, 95, 188, 0.4), 0 0 20px rgba(166, 95, 188, 0.2);
+    border-color: #A65FBC;
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(166, 95, 188, 0.8), 0 0 40px rgba(166, 95, 188, 0.4), 0 0 60px rgba(166, 95, 188, 0.2);
+    border-color: #c084fc;
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(166, 95, 188, 0.4), 0 0 20px rgba(166, 95, 188, 0.2);
+    border-color: #A65FBC;
+  }
+}
+
+/* Estilos globales del cuerpo */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: var(--font-family-sans);
+  line-height: var(--line-height-normal);
+  color: var(--color-secondary-900);
+  background-color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+#__next {
+  isolation: isolate;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-primary-600);
+  outline-offset: 2px;
+}
+
+/* Hide focus outline when not using keyboard */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Transition por defecto */
+* {
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+/* Button focus styles */
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--color-primary-600);
+  outline-offset: 2px;
+}
+
+/* Link focus styles */
+a:focus-visible {
+  outline: 2px solid var(--color-primary-600);
+  outline-offset: 2px;
+}
+
+/* Selection styles */
+::selection {
+  background-color: var(--color-primary-200);
+  color: var(--color-primary-900);
+}
+
+/* Disable text selection on buttons */
+button,
+[role="button"] {
+  user-select: none;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Print styles */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  
+  img {
+    max-width: 100% !important;
+  }
+  
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  
+  h2,
+  h3 {
+    page-break-after: avoid;
   }
 }

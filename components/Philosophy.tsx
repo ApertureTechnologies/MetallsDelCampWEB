@@ -12,65 +12,81 @@ export default function Philosophy() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {/* Economía Circular */}
+          {/* Fiabilidad */}
           <div className="text-center">
             <div className="w-16 h-16 mx-auto mb-6 bg-primary-100 rounded-full flex items-center justify-center">
               <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">Economía Circular</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">Fiabilidad</h3>
             <p className="text-gray-600 leading-relaxed">
-              Convertimos los residuos en nuevos recursos, cerrando el ciclo productivo y minimizando el impacto ambiental.
+              En Metalls del Camp, tu confianza es nuestra prioridad. Cumplimos cada compromiso con puntualidad y precisión, porque sabemos que tu tiempo y tu tranquilidad no tienen precio.
             </p>
           </div>
 
-          {/* Innovación Tecnológica */}
+          {/* Seguridad Medioambiental */}
           <div className="text-center">
             <div className="w-16 h-16 mx-auto mb-6 bg-secondary-100 rounded-full flex items-center justify-center">
               <svg className="w-8 h-8 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">Innovación Tecnológica</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">Seguridad Medioambiental</h3>
             <p className="text-gray-600 leading-relaxed">
-              Aplicamos las últimas tecnologías en clasificación, tratamiento y valorización de residuos para maximizar la eficiencia.
+              Más que cumplir la ley, protegemos lo que es tuyo: tu reputación, tus instalaciones y el entorno donde vivimos. Cada residuo recibe el destino correcto, con trazabilidad y total garantía.
             </p>
           </div>
 
-          {/* Compromiso Sostenible */}
+          {/* Cercanía y Compromiso */}
           <div className="text-center">
             <div className="w-16 h-16 mx-auto mb-6 bg-tertiary-100 rounded-full flex items-center justify-center">
               <svg className="w-8 h-8 text-tertiary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">Compromiso Sostenible</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">Cercanía y Compromiso</h3>
             <p className="text-gray-600 leading-relaxed">
-              Nuestro compromiso con el planeta va más allá del cumplimiento normativo: es parte de nuestra identidad empresarial.
+              Para nosotros, no eres un número. Escuchamos, entendemos y adaptamos nuestros servicios a tus necesidades, trabajando a tu lado como un socio que comparte tus valores y objetivos.
             </p>
           </div>
         </div>
 
-        {/* Métricas de Impacto */}
-        <div className="bg-white rounded-full shadow-3xl px-12 py-16 md:px-16 md:py-20 border-4 border-primary-100 hover:shadow-4xl transition-all duration-500 transform hover:scale-105">
-          <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">Nuestro Impacto</h3>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-primary-600 mb-2">15.000+</div>
-              <div className="text-gray-600">Toneladas procesadas</div>
+        {/* Métricas de Impacto - Burbujas individuales */}
+        <div className="text-center mb-8">
+          <h3 className="text-2xl font-bold text-gray-900 mb-12">Nuestro Impacto</h3>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Burbuja 1 */}
+          <div className="flex justify-center">
+            <div className="bg-white rounded-full shadow-2xl w-48 h-48 flex flex-col items-center justify-center border-4 border-primary-100 hover:shadow-3xl transition-all duration-500 transform hover:scale-105">
+              <div className="text-3xl font-bold text-primary-600 mb-2">15.000+</div>
+              <div className="text-gray-600 text-center px-4">Toneladas procesadas</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-secondary-600 mb-2">85%</div>
-              <div className="text-gray-600">Tasa de valorización</div>
+          </div>
+
+          {/* Burbuja 2 */}
+          <div className="flex justify-center">
+            <div className="bg-white rounded-full shadow-2xl w-48 h-48 flex flex-col items-center justify-center border-4 border-secondary-100 hover:shadow-3xl transition-all duration-500 transform hover:scale-105">
+              <div className="text-3xl font-bold text-secondary-600 mb-2">85%</div>
+              <div className="text-gray-600 text-center px-4">Tasa de valorización</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-tertiary-600 mb-2">N/A</div>
-              <div className="text-gray-600">Sustituir</div>
+          </div>
+
+          {/* Burbuja 3 */}
+          <div className="flex justify-center">
+            <div className="bg-white rounded-full shadow-2xl w-48 h-48 flex flex-col items-center justify-center border-4 border-tertiary-100 hover:shadow-3xl transition-all duration-500 transform hover:scale-105">
+              <div className="text-3xl font-bold text-tertiary-600 mb-2">10.000+</div>
+              <div className="text-gray-600 text-center px-4">Clientes satisfechos</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-accent-600 mb-2">N/A</div>
-              <div className="text-gray-600">Sustituir</div>
+          </div>
+
+          {/* Burbuja 4 */}
+          <div className="flex justify-center">
+            <div className="bg-white rounded-full shadow-2xl w-48 h-48 flex flex-col items-center justify-center border-4 border-accent-100 hover:shadow-3xl transition-all duration-500 transform hover:scale-105">
+              <div className="text-3xl font-bold text-accent-600 mb-2">17+</div>
+              <div className="text-gray-600 text-center px-4">Años de experiencia</div>
             </div>
           </div>
         </div>

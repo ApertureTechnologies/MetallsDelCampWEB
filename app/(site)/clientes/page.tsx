@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import TestimoniosCarousel from '@/components/TestimoniosCarousel';
 
 export const metadata: Metadata = {
   title: 'Nuestros Clientes - Metalls del Camp',
@@ -30,37 +31,14 @@ export default function ClientesPage() {
     }
   ];
 
-  const testimonios = [
-    {
-      empresa: "Construcciones Vilanova S.L.",
-      sector: "Construcción",
-      testimonio: "Metalls del Camp ha revolucionado la gestión de residuos en nuestras obras. Su sistema de gestión integral nos permite cumplir con la normativa y obtener certificaciones ambientales de forma automática.",
-      contacto: "Pere Vilanova, Director General",
-      imagen: "/testimonials/vilanova.jpg"
-    },
-    {
-      empresa: "Astilleros Costa Brava",
-      sector: "Naval",
-      testimonio: "La profesionalidad del equipo y la trazabilidad completa del proceso nos da total confianza. Hemos incrementado nuestras tasas de valorización un 40% desde que trabajamos con ellos.",
-      contacto: "Marina Soler, Responsable Ambiental",
-      imagen: "/testimonials/astilleros.jpg"
-    },
-    {
-      empresa: "Metalúrgica Industrial Lleida",
-      sector: "Manufacturera",
-      testimonio: "Excelente servicio de recogida y valorización. Los informes detallados nos ayudan enormemente en nuestras auditorías ambientales y cumplimiento de autorizaciones medioambientales.",
-      contacto: "Jordi Camps, Jefe de Producción",
-      imagen: "/testimonials/metalurgica.jpg"
-    }
-  ];
-
-  const certificaciones = [
-    "Autorización 157/G02/CV - Residuos Peligrosos",
-    "Autorización 33383/P02/CV - Tratamiento Metálicos",
-    "Autorización 374/G04/CV - Valorización",
-    "Autorización 3873/P04/CV - Tratamiento Físico-Químico",
-    "Autorización 79/T01/CV - Transporte Peligrosos",
-    "Autorización 1021/G04/CV - Residuos No Peligrosos"
+  const autorizaciones = [
+    "Autorización 157/G02/CV - ALMACENAMIENTO RESIDUOS PELIGROSOS",
+    "Autorización 33383/P02/CV - PEQUEÑO PRODUCTOR RESID.PELIGROSOS",
+    "Autorización 374/G04/CV - TRATAMIENTO RESIDUOS NO PELIGROSOS",
+    "Autorización 3873/P04/CV - PEQUEÑO PRODUCT.RESID.NO PELIGROSOS",
+    "Autorización 79/T01/CV - TRANSPORTISTA RESIDUOS PELIGROSOS",
+    "Autorización 361/T02/CV - TRANSPORTISTA RESID. NO PELIGROSOS",
+    "Autorización 1021/G04/CV - TRATAMIENTO RESIDUOS NO PELIGROSOS"
   ];
 
   return (
@@ -99,47 +77,25 @@ export default function ClientesPage() {
       </section>
 
       {/* Testimonios */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
-            Testimonios de Clientes
-          </h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {testimonios.map((testimonio, index) => (
-              <div key={index} className="bg-gray-50 rounded-full px-8 py-10 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 border-2 border-gray-200">
-                <div className="flex flex-col items-center mb-6">
-                  <div className="w-20 h-20 bg-gradient-dark-to-br rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4">
-                    {testimonio.empresa.charAt(0)}
-                  </div>
-                  <div className="text-center">
-                    <h3 className="font-bold text-gray-900 mb-1">{testimonio.empresa}</h3>
-                    <p className="text-sm text-gray-600">{testimonio.sector}</p>
-                  </div>
-                </div>
-                
-                <blockquote className="text-gray-700 italic mb-6 text-center px-2 text-sm">
-                  &ldquo;{testimonio.testimonio}&rdquo;
-                </blockquote>
-                
-                <cite className="text-xs text-primary-600 font-semibold not-italic text-center block">
-                  — {testimonio.contacto}
-                </cite>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TestimoniosCarousel />
 
       {/* Certificaciones */}
-      <section className="py-16 bg-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section 
+        className="py-16 bg-cover bg-center bg-no-repeat relative"
+        style={{
+          backgroundImage: "url('/images/certificadomedioambiental.jpg')"
+        }}
+      >
+        {/* Overlay para mejorar la legibilidad */}
+        <div className="absolute inset-0 bg-white/90"></div>
+        
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
-            Certificaciones y Avales
+            Autorizaciones Medioambientales y Acreditaciones
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {certificaciones.map((cert, index) => (
+            {autorizaciones.map((cert, index) => (
               <div key={index} className="bg-white rounded-full py-4 px-6 shadow-lg flex items-center justify-center border-2 border-gray-100 hover:shadow-xl hover:scale-105 transition-all duration-300">
                 <svg className="w-6 h-6 text-secondary-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -164,7 +120,7 @@ export default function ClientesPage() {
           <div className="flex justify-center">
             <Link
               href="/contacto"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white border-2 border-white hover:bg-white hover:text-gray-900 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white border-2 border-white hover:bg-white hover:text-gray-900 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600 cursor-pointer"
             >
               Pide Cita
             </Link>

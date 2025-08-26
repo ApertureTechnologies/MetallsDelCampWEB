@@ -1,27 +1,38 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import { getEquipo } from '@/lib/content/loaders';
+import YouTubeModal from '@/components/YouTubeModal';
 
 export default function OrgChart() {
   const equipo = getEquipo();
   const { ceo, directiva, gerencias } = equipo;
+  
+  // Estados para el modal de YouTube
+  const [modalOpen, setModalOpen] = useState(false);
+  const [currentVideo, setCurrentVideo] = useState({ id: '', title: '' });
 
-  // Función para obtener una persona específica de la directiva
-  const getDirectivoByRole = (role: string) => {
-    return directiva?.find(person => person.puesto.includes(role));
+  const openVideoModal = (videoId: string, title: string) => {
+    setCurrentVideo({ id: videoId, title });
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setCurrentVideo({ id: '', title: '' });
   };
 
   // Componente circular como en la imagen
   const CircularPersonCard = ({ 
     persona, 
     variant = 'default',
-    videoUrl = null,
+    videoId = null,
     isCEO = false
   }: { 
     persona: { id: string; nombre: string; puesto: string; foto?: string };
     variant?: 'default' | 'department' | 'team' | 'commercial';
-    videoUrl?: string | null;
+    videoId?: string | null;
     isCEO?: boolean;
   }) => {
     const getBorderColor = () => {
@@ -33,13 +44,13 @@ export default function OrgChart() {
         case 'commercial':
           return 'border-yellow-500';
         default:
-          return 'border-red-500';
+          return 'border-purple-600';
       }
     };
 
     const handleVideoClick = () => {
-      if (videoUrl) {
-        window.open(videoUrl, '_blank');
+      if (videoId) {
+        openVideoModal(videoId, `${persona.nombre} - ${persona.puesto}`);
       }
     };
 
@@ -62,10 +73,10 @@ export default function OrgChart() {
           </div>
           
           {/* Botón de video */}
-          {videoUrl && !isCEO && (
+          {videoId && !isCEO && (
             <button
               onClick={handleVideoClick}
-              className="absolute -bottom-2 -right-2 w-8 h-8 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors shadow-lg z-10"
+              className="absolute -bottom-2 -right-2 w-8 h-8 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors shadow-lg z-10 cursor-pointer"
               title="Ver video presentación"
             >
               <svg className="w-4 h-4 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
@@ -76,11 +87,11 @@ export default function OrgChart() {
         </div>
         
         {/* Texto debajo */}
-        <div className="mt-3 text-center">
-          <h4 className="font-bold text-sm text-gray-900">
+        <div className="mt-3 text-center max-w-[120px]">
+          <h4 className="font-bold text-sm text-gray-900 leading-tight">
             {persona.nombre}
           </h4>
-          <p className="text-xs text-gray-600 mt-1">
+          <p className="text-xs text-gray-600 mt-1 leading-tight">
             {persona.puesto}
           </p>
         </div>
@@ -88,25 +99,11 @@ export default function OrgChart() {
     );
   };
 
-  const VerticalConnection = ({ height = 'h-8' }: { height?: string }) => (
-    <div className="flex justify-center my-4">
-      <div className={`w-0.5 ${height} bg-gray-800`}></div>
-    </div>
-  );
 
   const VerticalArrow = ({ height = 'h-8' }: { height?: string }) => (
     <div className="flex flex-col items-center my-4">
       <div className={`w-0.5 ${height} bg-gray-800`}></div>
       <div className="w-0 h-0 border-l-[6px] border-r-[6px] border-t-[8px] border-l-transparent border-r-transparent border-t-gray-800"></div>
-    </div>
-  );
-
-  const TeeConnectionHorizontal = ({ width = 'w-64' }: { width?: string }) => (
-    <div className="flex justify-center my-6">
-      <div className="relative">
-        <div className="w-0.5 h-8 bg-gray-800"></div>
-        <div className={`absolute top-4 left-1/2 transform -translate-x-1/2 h-0.5 ${width} bg-gray-800`}></div>
-      </div>
     </div>
   );
 
@@ -133,49 +130,55 @@ export default function OrgChart() {
               />
             </div>
           )}
+          
+          {/* Flecha vertical hacia Belén */}
+          <VerticalArrow height="h-8" />
 
-          <VerticalConnection />
-
-          {/* NIVEL 2: BELÉN E IGNACIO (MISMO NIVEL) */}
-          <div className="flex items-center gap-20 mb-8">
-            {getDirectivoByRole('Directora Ejecutiva Global') && (
+          {/* NIVEL 2: SOLO BELÉN */}
+          <div className="flex justify-center mb-8">
+            {directiva?.[0] && (
               <CircularPersonCard 
-                persona={getDirectivoByRole('Directora Ejecutiva Global')!} 
-                videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-              />
-            )}
-            {getDirectivoByRole('Ayudante de Dirección') && (
-              <CircularPersonCard 
-                persona={getDirectivoByRole('Ayudante de Dirección')!}
-                videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                persona={directiva[0]} 
+                videoId="dQw4w9WgXcQ"
               />
             )}
           </div>
 
-          <TeeConnectionHorizontal width="w-96" />
+          {/* Flecha vertical hacia nivel 3 */}
+          <VerticalArrow height="h-8" />
 
-          {/* NIVEL 3: VALERIANO (IZQUIERDA), FRANCISCO JAVIER (CENTRO), JOSÉ LUIS (DERECHA) */}
-          <div className="flex items-center gap-16 mb-8">
+          {/* NIVEL 3: IGNACIO (ELEVADO) Y GERENTES */}
+          <div className="flex items-end gap-16 mb-8">
             {gerencias?.aldaia?.gerente && (
               <CircularPersonCard 
                 persona={gerencias.aldaia.gerente} 
                 variant="department"
-                videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                videoId="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
               />
             )}
-            {getDirectivoByRole('Director Comercial Nacional') && (
+            {directiva?.[2] && (
               <CircularPersonCard 
-                persona={getDirectivoByRole('Director Comercial Nacional')!}
+                persona={directiva[2]}
                 variant="commercial"
-                videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                videoId="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
               />
             )}
             {gerencias?.elRomeral?.gerente && (
               <CircularPersonCard 
                 persona={gerencias.elRomeral.gerente} 
                 variant="team"
-                videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                videoId="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
               />
+            )}
+            {/* IGNACIO ELEVADO CON MARGIN BOTTOM */}
+            {directiva?.[1] && (
+              <div className="mb-8">
+                <CircularPersonCard 
+                  persona={directiva[1]}
+                  variant="default"
+                  videoId="dQw4w9WgXcQ"
+                />
+              </div>
             )}
           </div>
 
@@ -193,42 +196,51 @@ export default function OrgChart() {
                   <CircularPersonCard 
                     persona={gerencias.aldaia.jefeAdministrativo} 
                     variant="department"
-                    videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                    videoId="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                   />
                 )}
                 {gerencias?.aldaia?.equipos?.coscollar?.planificador && (
                   <CircularPersonCard 
                     persona={gerencias.aldaia.equipos.coscollar.planificador} 
                     variant="department"
-                    videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                    videoId="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                   />
                 )}
               </div>
 
               <VerticalArrow height="h-6" />
 
-              {/* Los 3 trabajadores en paralelo */}
-              <div className="flex gap-6">
+              {/* Los 3 trabajadores en paralelo - ALINEACIÓN PERFECTA */}
+              <div className="flex gap-6 items-start">
                 {gerencias?.aldaia?.equipos?.coscollar?.jefeTrafico && (
-                  <CircularPersonCard 
-                    persona={gerencias.aldaia.equipos.coscollar.jefeTrafico} 
-                    variant="department"
-                    videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                  />
+                  <div className="w-32 flex justify-center">
+                    <CircularPersonCard 
+                      persona={gerencias.aldaia.equipos.coscollar.jefeTrafico} 
+                      variant="department"
+                      videoId="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                    />
+                  </div>
                 )}
                 {gerencias?.aldaia?.equipos?.coscollar?.responsable && (
-                  <CircularPersonCard 
-                    persona={gerencias.aldaia.equipos.coscollar.responsable} 
-                    variant="department"
-                    videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                  />
+                  <div className="w-32 flex justify-center">
+                    <CircularPersonCard 
+                      persona={gerencias.aldaia.equipos.coscollar.responsable} 
+                      variant="department"
+                      videoId="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                    />
+                  </div>
                 )}
                 {gerencias?.aldaia?.equipos?.serraEspada?.descarga && (
-                  <CircularPersonCard 
-                    persona={gerencias.aldaia.equipos.serraEspada.descarga} 
-                    variant="department"
-                    videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                  />
+                  <div className="w-32 flex justify-center">
+                    <CircularPersonCard 
+                      persona={{
+                        ...gerencias.aldaia.equipos.serraEspada.descarga,
+                        puesto: "Descarga de Aceite y Recepción Residuos"
+                      }} 
+                      variant="department"
+                      videoId="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                    />
+                  </div>
                 )}
               </div>
             </div>
@@ -245,7 +257,7 @@ export default function OrgChart() {
                   <CircularPersonCard 
                     persona={gerencias.elRomeral.coordinacion} 
                     variant="team"
-                    videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                    videoId="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                   />
                 )}
                 <CircularPersonCard 
@@ -255,7 +267,7 @@ export default function OrgChart() {
                     puesto: "Jefa de Administración"
                   }}
                   variant="team"
-                  videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                  videoId="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                 />
               </div>
 
@@ -267,14 +279,14 @@ export default function OrgChart() {
                   <CircularPersonCard 
                     persona={gerencias.elRomeral.equipos.plantaResiduos.responsable} 
                     variant="team"
-                    videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                    videoId="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                   />
                 )}
                 {gerencias?.elRomeral?.equipos?.plantaFiltros?.responsable && (
                   <CircularPersonCard 
                     persona={gerencias.elRomeral.equipos.plantaFiltros.responsable} 
                     variant="team"
-                    videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                    videoId="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                   />
                 )}
               </div>
@@ -282,6 +294,14 @@ export default function OrgChart() {
           </div>
         </div>
       </div>
+      
+      {/* Modal de YouTube */}
+      <YouTubeModal 
+        isOpen={modalOpen}
+        onClose={closeModal}
+        videoId={currentVideo.id}
+        title={currentVideo.title}
+      />
     </section>
   );
 }

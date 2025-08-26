@@ -1,8 +1,31 @@
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
 import { getInstalaciones } from '@/lib/content/loaders';
+import YouTubeModal from '@/components/YouTubeModal';
 
 export default function InstallationsGrid() {
   const instalaciones = getInstalaciones();
+  
+  // Estados para el modal de YouTube
+  const [modalOpen, setModalOpen] = useState(false);
+  const [currentVideo, setCurrentVideo] = useState({ id: '', title: '' });
+
+  const openVideoModal = (videoId: string, title: string) => {
+    setCurrentVideo({ id: videoId, title });
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setCurrentVideo({ id: '', title: '' });
+  };
+
+  // Función para obtener la URL de la thumbnail de YouTube
+  const getYouTubeThumbnail = (videoId: string) => {
+    return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+  };
 
   return (
     <section className="py-16 bg-gray-50" id="instalaciones" aria-labelledby="instalaciones-title">
@@ -16,55 +39,30 @@ export default function InstallationsGrid() {
           </p>
         </div>
 
-        {/* Burgos - Destacado en el centro */}
+        {/* Burgos - Destacado en el centro - Píldora más baja */}
         <div className="mb-12">
           <div className="max-w-4xl mx-auto">
             {instalaciones.slice(0, 1).map((instalacion) => (
               <article 
                 key={instalacion.slug}
-                className="bg-white rounded-full shadow-3xl overflow-hidden border-4 border-primary-100 hover:shadow-4xl transition-all duration-500 transform hover:scale-105"
+                className="bg-white rounded-full shadow-3xl overflow-hidden border-4 border-purple-400 hover:shadow-4xl transition-all duration-500 transform hover:scale-105"
                 aria-labelledby={`instalacion-${instalacion.slug}-title`}
               >
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-                  {/* Imagen */}
-                  <div className="relative h-64 lg:h-80 rounded-l-full overflow-hidden">
-                    <Image
-                      src={instalacion.image}
-                      alt={`Instalación de ${instalacion.title}`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      priority
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                  </div>
+                <div className="px-16 py-6 text-center">
+                  <div className="flex items-center justify-center space-x-12">
+                    {/* Badge de próximamente */}
+                    <span className="inline-block px-4 py-2 bg-purple-100 text-purple-800 text-sm font-semibold rounded-full">
+                      Próximamente
+                    </span>
 
-                  {/* Contenido */}
-                  <div className="p-8 lg:p-10 flex flex-col justify-center space-y-6">
-                    <div>
-                      <span className="inline-block px-3 py-1 bg-primary-100 text-primary-800 text-sm font-semibold rounded-full mb-4">
-                        Proximamente
-                      </span>
-                      <h3 id={`instalacion-${instalacion.slug}-title`} className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
-                        {instalacion.title}
-                      </h3>
-                      <div className="w-12 h-1 bg-primary-600 rounded-full mb-4"></div>
-                    </div>
+                    {/* Título principal - Burgos */}
+                    <h3 id={`instalacion-${instalacion.slug}-title`} className="text-3xl lg:text-4xl font-bold text-gray-900">
+                      {instalacion.title}
+                    </h3>
 
-                    <p className="text-gray-700 leading-relaxed">
-                      {instalacion.desc}
-                    </p>
-
-                    {/* Stats compactos */}
-                    <div className="grid grid-cols-2 gap-4 pt-4">
-                      <div className="text-center">
-                        <div className="text-xl font-bold text-primary-600">18,000</div>
-                        <div className="text-sm text-gray-600">m² superficie</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-xl font-bold text-primary-600">25,000</div>
-                        <div className="text-sm text-gray-600">t/año capacidad</div>
-                      </div>
+                    {/* Badge de nueva instalación */}
+                    <div className="inline-block bg-purple-600 text-white px-6 py-2 rounded-full font-bold shadow-lg text-sm">
+                      🏗️ Nueva Instalación
                     </div>
                   </div>
                 </div>
@@ -78,23 +76,60 @@ export default function InstallationsGrid() {
           {instalaciones.slice(1).map((instalacion) => (
             <article 
               key={instalacion.slug} 
-              className="bg-white rounded-4xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              className="bg-white rounded-4xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
               aria-labelledby={`instalacion-${instalacion.slug}-title`}
+              onClick={() => instalacion.videoId && openVideoModal(instalacion.videoId, `${instalacion.title} - Video Instalaciones`)}
+              onKeyDown={(e) => {
+                if ((e.key === 'Enter' || e.key === ' ') && instalacion.videoId) {
+                  e.preventDefault();
+                  openVideoModal(instalacion.videoId, `${instalacion.title} - Video Instalaciones`);
+                }
+              }}
+              tabIndex={0}
+              role="button"
+              aria-label={`Ver video de ${instalacion.title}`}
             >
               <div className="relative h-48 bg-gray-200">
-                <Image
-                  src={instalacion.image}
-                  alt={`Instalación de ${instalacion.title}`}
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-300"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                <div className="absolute bottom-3 left-3">
-                  <h3 id={`instalacion-${instalacion.slug}-title`} className="text-lg font-bold text-white">
-                    {instalacion.title}
-                  </h3>
-                </div>
+                {instalacion.videoId ? (
+                  <>
+                    <Image
+                      src={getYouTubeThumbnail(instalacion.videoId)}
+                      alt={`Video de instalación ${instalacion.title}`}
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                    {/* Play button overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors">
+                      <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center shadow-lg hover:bg-red-700 transition-colors">
+                        <svg className="w-6 h-6 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="absolute bottom-3 left-3">
+                      <h3 id={`instalacion-${instalacion.slug}-title`} className="text-lg font-bold text-white">
+                        {instalacion.title}
+                      </h3>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <Image
+                      src={instalacion.image}
+                      alt={`Instalación de ${instalacion.title}`}
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                    <div className="absolute bottom-3 left-3">
+                      <h3 id={`instalacion-${instalacion.slug}-title`} className="text-lg font-bold text-white">
+                        {instalacion.title}
+                      </h3>
+                    </div>
+                  </>
+                )}
               </div>
               <div className="p-5">
                 <p className="text-gray-600 mb-3 leading-relaxed text-sm">
@@ -120,7 +155,7 @@ export default function InstallationsGrid() {
         <div className="text-center">
           <a
             href="/instalaciones"
-            className="inline-flex items-center px-6 py-3 text-lg font-medium text-primary-600 hover:text-primary-700 bg-white border border-primary-300 hover:border-primary-400 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+            className="inline-flex items-center px-6 py-3 text-lg font-medium text-primary-600 hover:text-primary-700 bg-white border border-primary-300 hover:border-primary-400 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 cursor-pointer"
             aria-label="Ver más información sobre todas nuestras instalaciones"
           >
             Ver todas las instalaciones
@@ -136,6 +171,14 @@ export default function InstallationsGrid() {
           </a>
         </div>
       </div>
+      
+      {/* Modal de YouTube */}
+      <YouTubeModal 
+        isOpen={modalOpen}
+        onClose={closeModal}
+        videoId={currentVideo.id}
+        title={currentVideo.title}
+      />
     </section>
   );
 }

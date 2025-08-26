@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import brandConfig from '../brand.config';
-import './globals.css';
+import '../styles/theme.css';
 
 const inter = Inter({
   variable: '--font-inter',

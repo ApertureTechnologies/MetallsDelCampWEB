@@ -61,7 +61,7 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-black text-white">
+    <header className="bg-purple-800 text-white">
       {/* Skip to content for accessibility */}
       <a
         href="#main-content"
@@ -74,7 +74,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center">
+            <Link href="/" className="flex items-center cursor-pointer">
               <HeaderLogo />
             </Link>
           </div>
@@ -87,7 +87,7 @@ export default function Header() {
                   {item.submenu ? (
                     <>
                       <button
-                        className="flex items-center px-3 py-2 text-sm font-medium text-white hover:text-primary-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-black rounded"
+                        className="flex items-center px-3 py-2 text-sm font-medium text-white hover:text-purple-200 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-300 focus:ring-offset-2 focus:ring-offset-purple-600 rounded cursor-pointer"
                         onMouseEnter={() => setActiveDropdown(item.name)}
                         onMouseLeave={() => setActiveDropdown(null)}
                         aria-expanded={activeDropdown === item.name}
@@ -113,13 +113,15 @@ export default function Header() {
                         }`}
                         onMouseEnter={() => setActiveDropdown(item.name)}
                         onMouseLeave={() => setActiveDropdown(null)}
+                        role="menu"
+                        aria-label={`Submenu de ${item.name}`}
                       >
                         <div className="py-2">
                           {item.submenu.map((subItem) => (
                             <Link
                               key={subItem.name}
                               href={subItem.href}
-                              className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors duration-150"
+                              className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-600 transition-colors duration-150 cursor-pointer"
                               onClick={() => setActiveDropdown(null)}
                             >
                               {subItem.name}
@@ -131,7 +133,11 @@ export default function Header() {
                   ) : (
                     <Link
                       href={item.href}
-                      className="px-3 py-2 text-sm font-medium text-white hover:text-primary-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-black rounded"
+                      className={`px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded ${
+                        item.name === 'Tramitación Medioambiental' 
+                          ? 'text-purple-900 bg-yellow-400 hover:bg-yellow-300 focus:ring-yellow-500 focus:ring-offset-purple-600' 
+                          : 'text-white hover:text-purple-200 focus:ring-purple-300 focus:ring-offset-purple-600'
+                      }`}
                     >
                       {item.name}
                     </Link>
@@ -145,7 +151,7 @@ export default function Header() {
           <div className="lg:hidden">
             <button
               type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-primary-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
+              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-purple-200 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-300"
               aria-controls="mobile-menu"
               aria-expanded={isMenuOpen}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -167,13 +173,13 @@ export default function Header() {
         {/* Mobile menu */}
         {isMenuOpen && (
           <div className="lg:hidden" id="mobile-menu">
-            <div className="px-2 pt-2 pb-3 space-y-1 border-t border-gray-800 max-h-96 overflow-y-auto">
+            <div className="px-2 pt-2 pb-3 space-y-1 border-t border-purple-500 max-h-96 overflow-y-auto">
               {navigation.map((item) => (
                 <div key={item.name}>
                   {item.submenu ? (
                     <>
                       <button
-                        className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-white hover:text-primary-400 hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded"
+                        className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-white hover:text-purple-200 hover:bg-purple-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-300 rounded"
                         onClick={() => handleDropdownToggle(item.name)}
                         aria-expanded={activeDropdown === item.name}
                       >
@@ -197,7 +203,7 @@ export default function Header() {
                             <Link
                               key={subItem.name}
                               href={subItem.href}
-                              className="block px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded"
+                              className="block px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-purple-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-300 rounded"
                               onClick={() => {
                                 setIsMenuOpen(false);
                                 setActiveDropdown(null);
@@ -212,7 +218,11 @@ export default function Header() {
                   ) : (
                     <Link
                       href={item.href}
-                      className="block px-3 py-2 text-base font-medium text-white hover:text-primary-400 hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded"
+                      className={`block px-3 py-2 text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 rounded ${
+                        item.name === 'Tramitación Medioambiental'
+                          ? 'text-purple-900 bg-yellow-400 hover:bg-yellow-300 focus:ring-yellow-500'
+                          : 'text-white hover:text-purple-200 hover:bg-purple-700 focus:ring-purple-300'
+                      }`}
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {item.name}

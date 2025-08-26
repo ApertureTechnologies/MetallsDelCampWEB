@@ -105,31 +105,32 @@ export default function Footer() {
           </div>
 
           {/* Logo y Créditos */}
-          <div className="flex flex-col items-center lg:items-end space-y-6">
+          <div className="flex flex-col items-center lg:items-end space-y-8">
+            {/* Logo de Metalls del Camp */}
             <div className="text-center lg:text-right">
               <Logo 
                 type="blanco" 
-                size="small" 
-                className="h-8 w-auto mb-4"
+                size="large" 
+                className="h-12 w-auto mb-2"
                 alt="Metalls del Camp"
               />
             </div>
             
             {/* Made by Aperture */}
             <div className="text-center lg:text-right">
-              <p className="text-xs text-gray-400 mb-2">Made by</p>
-              <div className="flex items-center space-x-2">
+              <p className="text-xs text-gray-400 mb-3">Made by</p>
+              <div className="flex flex-col items-center lg:items-end space-y-2">
                 <Image
-                  src="/brand/aperture-logo.png"
+                  src="/brand/Logo Metalls/LogoAperture.png"
                   alt="Aperture Technologies"
-                  width={200}
-                  height={50}
-                  className="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity"
+                  width={400}
+                  height={100}
+                  className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300 filter brightness-90 hover:brightness-100"
                 />
-              </div>
-              <div className="flex items-center space-x-2">
-                <p className="text-xs text-gray-400 mb-2">and</p>
-                <p className="text-xs text-gray-400">gonagb.com</p>
+                <div className="flex items-center space-x-2 text-xs text-gray-400">
+                  <span>and</span>
+                  <Link href="https://gonagb.com" className="text-blue-400 hover:text-blue-300 transition-colors cursor-pointer">gonagb.com</Link>
+                </div>
               </div>
             </div>
           </div>

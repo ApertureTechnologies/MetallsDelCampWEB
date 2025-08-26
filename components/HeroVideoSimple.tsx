@@ -34,6 +34,7 @@ export default function HeroVideoSimple() {
         }}>
           <button
             onClick={() => setShowVideo(false)}
+            className="cursor-pointer"
             style={{
               position: 'absolute',
               top: '20px',
@@ -76,9 +77,9 @@ export default function HeroVideoSimple() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'center' }}>
           <button
             onClick={() => {
-              console.log('¡Botón clickeado!');
               setShowVideo(true);
             }}
+            className="cursor-pointer"
             style={{
               background: '#dc2626',
               color: 'white',
@@ -100,6 +101,7 @@ export default function HeroVideoSimple() {
           <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
             <a 
               href={siteContent.home.ctas.primaryHref}
+              className="cursor-pointer"
               style={{
                 background: '#2563eb',
                 color: 'white',
@@ -113,6 +115,7 @@ export default function HeroVideoSimple() {
             </a>
             <a 
               href={siteContent.home.ctas.secondaryHref}
+              className="cursor-pointer"
               style={{
                 background: '#059669',
                 color: 'white',

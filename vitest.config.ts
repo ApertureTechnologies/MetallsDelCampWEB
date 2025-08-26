@@ -1,6 +1,6 @@
 /// <reference types="vitest" />
-import { defineConfig } from 'vitest/config';
 import path from 'path';
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   plugins: [],
@@ -8,6 +8,14 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./tests/setup.ts'],
     globals: true,
+    exclude: [
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/cypress/**',
+      '**/.{idea,git,cache,output,temp}/**',
+      '**/e2e/**',
+      '**/*.spec.ts'
+    ],
   },
   resolve: {
     alias: {
