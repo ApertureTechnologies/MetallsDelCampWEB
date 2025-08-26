@@ -72,6 +72,8 @@ export type Maquinaria = {
   title: string;
   price?: string;        // mostrar como texto, opcional
   image: string;
+  images?: string[];     // array de imágenes adicionales para la galería
+  modalImages?: string[]; // imágenes específicas para mostrar en el modal
   desc?: string;
   featured?: boolean;    // para destacar máquinas principales
   specifications?: {

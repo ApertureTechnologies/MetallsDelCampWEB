@@ -19,6 +19,7 @@ interface MaquinariaModalProps {
     };
     features?: string[];
     images?: string[];
+    modalImages?: string[]; // Imágenes específicas para el modal
   } | null;
   isOpen: boolean;
   onClose: () => void;
@@ -29,7 +30,10 @@ export default function MaquinariaModal({ maquinaria, isOpen, onClose }: Maquina
 
   if (!isOpen || !maquinaria) return null;
 
-  const allImages = [maquinaria.image, ...(maquinaria.images || [])];
+  // Usar modalImages si están disponibles, sino usar images, sino solo la imagen principal
+  const allImages = maquinaria.modalImages && maquinaria.modalImages.length > 0 
+    ? maquinaria.modalImages 
+    : [maquinaria.image, ...(maquinaria.images || [])];
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % allImages.length);

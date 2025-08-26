@@ -25,6 +25,13 @@ export default function MaquinariasPage() {
   const [selectedMaquinaria, setSelectedMaquinaria] = useState<Maquinaria | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // Filtrar máquinas por categoría
+  const limpiezaMaquinarias = allMaquinarias.filter(m => m.category === 'Limpieza');
+  const contenedoresMaquinarias = allMaquinarias.filter(m => m.category === 'Almacenamiento');
+  const autocompactadorasMaquinarias = allMaquinarias.filter(m => 
+    m.category === 'Compactación' || m.category === 'Trituración' || m.category === 'Separación'
+  );
+
   const handleMaquinariaClick = (maquinaria: Maquinaria) => {
     setSelectedMaquinaria(maquinaria);
     setIsModalOpen(true);
@@ -51,25 +58,35 @@ export default function MaquinariasPage() {
       aria-label={`Ver detalles de ${maquinaria.title}`}
       className="group cursor-pointer"
     >
-      {/* Burbuja oval simplificada */}
-      <div className="relative bg-gradient-to-b from-gray-300 via-gray-400 to-gray-600 rounded-full aspect-[4/5] p-6 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 overflow-hidden">
-        {/* Contenido centrado - Solo título */}
+      {/* Burbuja oval con imagen de fondo */}
+      <div 
+        className="relative bg-gradient-to-b from-gray-300 via-gray-400 to-gray-600 rounded-full aspect-[4/5] p-6 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 overflow-hidden bg-cover bg-center"
+        style={{
+          backgroundImage: maquinaria.image ? `url('${maquinaria.image}')` : undefined,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Overlay para mejorar legibilidad del texto */}
+        <div className="absolute inset-0 bg-black/40"></div>
+        
+        {/* Contenido centrado */}
         <div className="flex flex-col items-center justify-center h-full text-center text-white relative z-10">
           {/* Título principal */}
-          <h3 className="text-xl font-bold leading-tight px-4">
+          <h3 className="text-xl font-bold leading-tight px-4 drop-shadow-lg">
             {maquinaria.title}
           </h3>
           
           {/* Categoría en la parte inferior */}
           <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-            <div className="bg-black/30 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-medium">
+            <div className="bg-black/60 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-medium">
               {category}
             </div>
           </div>
         </div>
 
         {/* Overlay de hover */}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary-500/20 via-primary-600/20 to-primary-700/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-primary-500/30 via-primary-600/30 to-primary-700/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       </div>
     </article>
   );
@@ -116,7 +133,7 @@ export default function MaquinariasPage() {
               </span>
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {allMaquinarias.slice(0, 9).map((maquinaria) => (
+              {limpiezaMaquinarias.map((maquinaria) => (
                 <MaquinariaBubble 
                   key={maquinaria.slug} 
                   maquinaria={maquinaria} 
@@ -134,7 +151,7 @@ export default function MaquinariasPage() {
               </span>
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {allMaquinarias.slice(9, 18).map((maquinaria) => (
+              {contenedoresMaquinarias.map((maquinaria) => (
                 <MaquinariaBubble 
                   key={maquinaria.slug} 
                   maquinaria={maquinaria} 
@@ -152,7 +169,7 @@ export default function MaquinariasPage() {
               </span>
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {allMaquinarias.slice(18, 27).map((maquinaria) => (
+              {autocompactadorasMaquinarias.map((maquinaria) => (
                 <MaquinariaBubble 
                   key={maquinaria.slug} 
                   maquinaria={maquinaria} 
