@@ -83,39 +83,39 @@ export default function HeroVideo() {
           paddingTop: '4rem'
         }}
       >
-        <div className="max-w-4xl mx-auto px-4">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <h1 
-            className="font-bold mb-6"
+            className="font-bold mb-4 sm:mb-6"
             style={{
-              fontSize: 'clamp(2rem, 8vw, 4rem)'
+              fontSize: 'clamp(1.75rem, 8vw, 4rem)'
             }}
           >
             {siteContent.home.claim}
           </h1>
           <p 
-            className="mb-8 opacity-90"
+            className="mb-6 sm:mb-8 opacity-90"
             style={{
-              fontSize: 'clamp(1rem, 3vw, 1.5rem)',
+              fontSize: 'clamp(0.95rem, 3vw, 1.5rem)',
               maxWidth: '48rem',
-              margin: '0 auto 2rem auto'
+              margin: '0 auto 1.5rem auto'
             }}
           >
             {siteContent.home.subclaim}
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col gap-4 items-center">
-            <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-col gap-3 sm:gap-4 items-center">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center w-full">
               <a
                 href={siteContent.home.ctas.primaryHref}
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors shadow-lg cursor-pointer"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors shadow-lg cursor-pointer w-full sm:w-auto"
                 aria-label={`Ir a ${siteContent.home.ctas.primaryLabel}`}
               >
                 {siteContent.home.ctas.primaryLabel}
               </a>
               <a
                 href={siteContent.home.ctas.secondaryHref}
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-green-600 hover:bg-green-700 rounded-lg transition-colors shadow-lg cursor-pointer"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white bg-green-600 hover:bg-green-700 rounded-lg transition-colors shadow-lg cursor-pointer w-full sm:w-auto"
                 aria-label={`Ir a ${siteContent.home.ctas.secondaryLabel}`}
               >
                 {siteContent.home.ctas.secondaryLabel}
@@ -123,7 +123,7 @@ export default function HeroVideo() {
               {siteContent.home.ctas.tertiaryLabel && (
                 <a
                   href={siteContent.home.ctas.tertiaryHref}
-                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-gray-900 bg-yellow-400 hover:bg-yellow-300 rounded-lg transition-all duration-300 shadow-lg cursor-pointer purple-glow-button"
+                  className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-gray-900 bg-yellow-400 hover:bg-yellow-300 rounded-lg transition-all duration-300 shadow-lg cursor-pointer purple-glow-button w-full sm:w-auto"
                   aria-label={`Ir a ${siteContent.home.ctas.tertiaryLabel}`}
                 >
                   {siteContent.home.ctas.tertiaryLabel}
@@ -132,20 +132,20 @@ export default function HeroVideo() {
             </div>
           </div>
 
-          {/* Botón de play/pause pequeño y redondo */}
-          <div className="mt-8 flex items-center justify-center gap-4">
+          {/* Botón de play/pause pequeño y redondo - Hidden on mobile */}
+          <div className="mt-6 sm:mt-8 hidden sm:flex items-center justify-center gap-4">
             {/* Botón de play/pause */}
             <button
               onClick={toggleVideo}
-              className="w-20 h-20 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 rounded-full flex items-center justify-center transition-all duration-300 shadow-2xl hover:shadow-red-500/25 hover:scale-110 cursor-pointer border-4 border-white/20"
+              className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 rounded-full flex items-center justify-center transition-all duration-300 shadow-2xl hover:shadow-red-500/25 hover:scale-110 cursor-pointer border-4 border-white/20"
               aria-label={isPlaying ? "Pausar video corporativo" : "Reproducir video corporativo"}
             >
               {isPlaying ? (
                 // Icono de pausa mejorado
-                <FaPause className="w-8 h-8 text-white" />
+                <FaPause className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               ) : (
                 // Icono de play mejorado y centrado
-                <FaPlay className="w-8 h-8 text-white ml-1" />
+                <FaPlay className="w-6 h-6 sm:w-8 sm:h-8 text-white ml-1" />
               )}
             </button>
           </div>
@@ -156,13 +156,13 @@ export default function HeroVideo() {
       <div 
         className="absolute left-1/2 transform -translate-x-1/2 text-white opacity-60"
         style={{
-          bottom: '2rem',
+          bottom: '1.5rem',
           zIndex: 30
         }}
       >
         <div className="flex flex-col items-center">
-          <span className="text-sm mb-2">Descubre más</span>
-          <HiChevronDown className="w-6 h-6 animate-bounce" />
+          <span className="text-xs sm:text-sm mb-2">Descubre más</span>
+          <HiChevronDown className="w-5 h-5 sm:w-6 sm:h-6 animate-bounce" />
         </div>
       </div>
     </section>

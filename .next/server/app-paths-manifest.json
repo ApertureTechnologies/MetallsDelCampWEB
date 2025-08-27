@@ -1,10 +1,3 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/page": "app/page.js",
-  "/(site)/maquinarias/page": "app/(site)/maquinarias/page.js",
-  "/(site)/tramitacion-medioambiental/page": "app/(site)/tramitacion-medioambiental/page.js",
-  "/(site)/proyectos/page": "app/(site)/proyectos/page.js",
-  "/(site)/residuos/page": "app/(site)/residuos/page.js",
-  "/(site)/empresa/page": "app/(site)/empresa/page.js",
-  "/(site)/contacto/page": "app/(site)/contacto/page.js"
+  "/page": "app/page.js"
 }
