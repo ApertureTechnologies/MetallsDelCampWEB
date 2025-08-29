@@ -1,0 +1,9 @@
+{
+  "status": 307,
+  "headers": {
+    "location": "/tramitacion-medioambiental",
+    "x-nextjs-stale-time": "4294967294",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(site)/layout,_N_T_/(site)/gestion-y-documentacion-ambiental/layout,_N_T_/(site)/gestion-y-documentacion-ambiental/page,_N_T_/gestion-y-documentacion-ambiental"
+  }
+}
