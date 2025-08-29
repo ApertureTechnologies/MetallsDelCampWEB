@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { getMaquinarias } from '@/lib/content/loaders';
 import MaquinariaModal from '@/components/MaquinariaModal';
 
@@ -42,8 +43,8 @@ export default function MaquinariasPage() {
     setSelectedMaquinaria(null);
   };
 
-  // Componente para burbuja simplificada
-  const MaquinariaBubble = ({ maquinaria, category }: { maquinaria: Maquinaria; category: string }) => (
+  // Componente para card estilo tramitación medioambiental
+  const MaquinariaCard = ({ maquinaria, category }: { maquinaria: Maquinaria; category: string }) => (
     <article 
       key={maquinaria.slug}
       onClick={() => handleMaquinariaClick(maquinaria)}
@@ -58,35 +59,63 @@ export default function MaquinariasPage() {
       aria-label={`Ver detalles de ${maquinaria.title}`}
       className="group cursor-pointer"
     >
-      {/* Burbuja oval con imagen de fondo */}
-      <div 
-        className="relative bg-gradient-to-b from-gray-300 via-gray-400 to-gray-600 rounded-full aspect-[4/5] p-6 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 overflow-hidden bg-cover bg-center"
-        style={{
-          backgroundImage: maquinaria.image ? `url('${maquinaria.image}')` : undefined,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        {/* Overlay para mejorar legibilidad del texto */}
-        <div className="absolute inset-0 bg-black/40"></div>
-        
-        {/* Contenido centrado */}
-        <div className="flex flex-col items-center justify-center h-full text-center text-white relative z-10">
-          {/* Título principal */}
-          <h3 className="text-xl font-bold leading-tight px-4 drop-shadow-lg">
-            {maquinaria.title}
-          </h3>
-          
-          {/* Categoría en la parte inferior */}
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-            <div className="bg-black/60 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-medium">
+      {/* Card rectangular con imagen */}
+      <div className="bg-white rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden">
+        {/* Imagen de la maquinaria */}
+        <div className="relative h-48 bg-gray-100">
+          {maquinaria.image && (
+            <Image
+              src={maquinaria.image}
+              alt={maquinaria.title}
+              fill
+              className="object-cover"
+            />
+          )}
+          {/* Badge de categoría */}
+          <div className="absolute top-3 left-3">
+            <span className="bg-primary-600 text-white px-3 py-1 rounded-full text-xs font-medium">
               {category}
-            </div>
+            </span>
           </div>
         </div>
-
-        {/* Overlay de hover */}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary-500/30 via-primary-600/30 to-primary-700/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        
+        {/* Contenido de la card */}
+        <div className="p-6">
+          <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors duration-200">
+            {maquinaria.title}
+          </h3>
+          {maquinaria.desc && (
+            <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+              {maquinaria.desc}
+            </p>
+          )}
+          
+          {/* Especificaciones básicas */}
+          {maquinaria.specifications && (
+            <div className="space-y-2 text-sm text-gray-500">
+              {maquinaria.specifications.capacity && (
+                <div className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-primary-400 rounded-full"></span>
+                  <span>Capacidad: {maquinaria.specifications.capacity}</span>
+                </div>
+              )}
+              {maquinaria.specifications.power && (
+                <div className="flex items-center space-x-2">
+                  <span className="w-2 h-2 bg-primary-400 rounded-full"></span>
+                  <span>Potencia: {maquinaria.specifications.power}</span>
+                </div>
+              )}
+            </div>
+          )}
+          
+          {/* Indicador de "Ver más" */}
+          <div className="mt-4 flex items-center text-primary-600 text-sm font-medium">
+            <span>Ver detalles</span>
+            <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
       </div>
     </article>
   );
@@ -134,7 +163,7 @@ export default function MaquinariasPage() {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {limpiezaMaquinarias.map((maquinaria) => (
-                <MaquinariaBubble 
+                <MaquinariaCard 
                   key={maquinaria.slug} 
                   maquinaria={maquinaria} 
                   category="Limpieza" 
@@ -152,7 +181,7 @@ export default function MaquinariasPage() {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {contenedoresMaquinarias.map((maquinaria) => (
-                <MaquinariaBubble 
+                <MaquinariaCard 
                   key={maquinaria.slug} 
                   maquinaria={maquinaria} 
                   category="Contenedores" 
@@ -170,7 +199,7 @@ export default function MaquinariasPage() {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {autocompactadorasMaquinarias.map((maquinaria) => (
-                <MaquinariaBubble 
+                <MaquinariaCard 
                   key={maquinaria.slug} 
                   maquinaria={maquinaria} 
                   category="Autocompactadoras" 

@@ -10,34 +10,9 @@
       "internal": true,
       "statusCode": 308,
       "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
-    },
-    {
-      "source": "/servicios/asesoramiento-tecnico",
-      "destination": "/tramitacion-medioambiental",
-      "statusCode": 308,
-      "regex": "^(?!/_next)/servicios/asesoramiento-tecnico(?:/)?$"
     }
   ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "Referrer-Policy",
-          "value": "strict-origin-when-cross-origin"
-        }
-      ],
-      "regex": "^(?:/(.*))(?:/)?$"
-    }
-  ],
+  "headers": [],
   "dynamicRoutes": [
     {
       "page": "/proyectos/[slug]",

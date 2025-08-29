@@ -234,46 +234,94 @@ export default function InstalacionesPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-gradient-light-to-br rounded-2xl p-8 border border-gray-200">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Comunidad Valenciana</h3>
-              <ul className="space-y-3 text-gray-700">
+            {/* Comunidad Valenciana - Azul */}
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 border border-blue-200">
+              <h3 className="text-2xl font-bold text-blue-900 mb-6">Comunidad Valenciana</h3>
+              <ul className="space-y-3 text-blue-800">
                 <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
                   <span>Valencia y área metropolitana</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
                   <span>Instalaciones en Aldaia</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
                   <span>Cobertura provincial completa</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
                   <span>Servicios de recogida y transporte</span>
                 </li>
               </ul>
             </div>
             
-            <div className="bg-gradient-dark-to-br rounded-2xl p-8 text-white">
-              <h3 className="text-2xl font-bold mb-6">Castilla-La Mancha</h3>
-              <ul className="space-y-3">
+            {/* Castilla-La Mancha - Amarillo y Rojo */}
+            <div className="bg-gradient-to-br from-yellow-50 to-red-100 rounded-2xl p-8 border border-yellow-200">
+              <h3 className="text-2xl font-bold text-red-900 mb-6">Castilla-La Mancha</h3>
+              <ul className="space-y-3 text-red-800">
                 <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                  <div className="w-2 h-2 bg-red-600 rounded-full"></div>
                   <span>Toledo y provincia</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                  <div className="w-2 h-2 bg-red-600 rounded-full"></div>
                   <span>Centro de El Romeral</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                  <div className="w-2 h-2 bg-red-600 rounded-full"></div>
                   <span>Red de distribución regional</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                  <div className="w-2 h-2 bg-red-600 rounded-full"></div>
                   <span>Logística optimizada</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Madrid - Rojo */}
+            <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-8 border border-red-200">
+              <h3 className="text-2xl font-bold text-red-900 mb-6">Comunidad de Madrid</h3>
+              <ul className="space-y-3 text-red-800">
+                <li className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                  <span>Madrid capital y área metropolitana</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                  <span>Cobertura de toda la comunidad</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                  <span>Servicios especializados</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                  <span>Red logística avanzada</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Aragón - Amarillo y Naranja */}
+            <div className="bg-gradient-to-br from-yellow-50 to-orange-100 rounded-2xl p-8 border border-yellow-200">
+              <h3 className="text-2xl font-bold text-orange-900 mb-6">Aragón</h3>
+              <ul className="space-y-3 text-orange-800">
+                <li className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-orange-600 rounded-full"></div>
+                  <span>Zaragoza y provincia</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-orange-600 rounded-full"></div>
+                  <span>Huesca y Teruel</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-orange-600 rounded-full"></div>
+                  <span>Gestión integral de residuos</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-orange-600 rounded-full"></div>
+                  <span>Transporte especializado</span>
                 </li>
               </ul>
             </div>

@@ -9,7 +9,7 @@ export default function CEOMessage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center">
-            <h2 id="mensaje-ceo-title" className="text-[clamp(1.5rem,2.5vw,2.5rem)] font-bold text-gray-900 mb-6 sm:mb-8">
+            <h2 id="mensaje-ceo-title" className="text-[clamp(1.5rem,2.5vw,2.5rem)] font-heading font-bold text-gray-900 mb-6 sm:mb-8">
               Compromiso con el Futuro
             </h2>
             <div className="bg-white rounded-2xl sm:rounded-3xl lg:rounded-full shadow-xl px-6 py-12 sm:px-8 sm:py-16 md:px-12 md:py-20 lg:px-16 lg:py-20 border-4 border-primary-100 hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.02]">

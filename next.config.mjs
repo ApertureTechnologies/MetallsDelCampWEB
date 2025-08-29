@@ -23,38 +23,8 @@ const nextConfig = {
   // Optimizaciones de producción
   poweredByHeader: false,
   compress: true,
-  // Headers de seguridad
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY'
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff'
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin'
-          }
-        ]
-      }
-    ];
-  },
-  // Redirects si es necesario
-  async redirects() {
-    return [
-      {
-        source: '/servicios/asesoramiento-tecnico',
-        destination: '/tramitacion-medioambiental',
-        permanent: true,
-      },
-    ];
-  }
+  // Headers y redirects manejados por el hosting provider (Vercel, Netlify, etc.)
+  // Para sitios estáticos, estos se configuran en vercel.json, _headers, _redirects, etc.
 };
 
 export default nextConfig;

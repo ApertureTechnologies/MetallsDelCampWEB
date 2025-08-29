@@ -67,7 +67,7 @@
           "pathname": "/vi/**"
         }
       ],
-      "unoptimized": false
+      "unoptimized": true
     },
     "devIndicators": {
       "position": "bottom-left"
@@ -96,6 +96,7 @@
     "logging": {},
     "expireTime": 31536000,
     "staticPageGenerationTimeout": 60,
+    "output": "export",
     "modularizeImports": {
       "@mui/icons-material": {
         "transform": "@mui/icons-material/{{member}}"
@@ -286,14 +287,7 @@
     },
     "htmlLimitedBots": "Mediapartners-Google|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview",
     "bundlePagesRouterDependencies": false,
-    "configFileName": "next.config.mjs",
-    "_originalRedirects": [
-      {
-        "source": "/servicios/asesoramiento-tecnico",
-        "destination": "/tramitacion-medioambiental",
-        "permanent": true
-      }
-    ]
+    "configFileName": "next.config.mjs"
   },
   "appDir": "C:\\Users\\Usuario\\Desktop\\MetallsDelCampWEB",
   "relativeAppDir": "",

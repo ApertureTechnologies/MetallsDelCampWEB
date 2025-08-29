@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { inter, poppins, jetbrainsMono } from '@/lib/fonts';
 import brandConfig from '../brand.config';
 import '../styles/theme.css';
 
@@ -29,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className="antialiased">
+      <body className={`${inter.variable} ${poppins.variable} ${jetbrainsMono.variable} antialiased`}>
         {children}
       </body>
     </html>

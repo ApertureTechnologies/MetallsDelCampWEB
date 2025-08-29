@@ -85,8 +85,10 @@
   --color-info: #3B82F6;
 
   /* Typography */
-  --font-family-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-family-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  /* Familias de fuentes */
+  --font-family-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  --font-family-heading: var(--font-poppins), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
@@ -473,4 +475,17 @@ html {
   h3 {
     page-break-after: avoid;
   }
+}
+
+/* Clases de utilidad para fuentes */
+.font-heading {
+  font-family: var(--font-family-heading);
+}
+
+.font-body {
+  font-family: var(--font-family-sans);
+}
+
+.font-mono {
+  font-family: var(--font-family-mono);
 }

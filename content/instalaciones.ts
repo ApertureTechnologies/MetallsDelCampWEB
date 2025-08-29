@@ -34,8 +34,8 @@ export interface Instalacion {
 export const instalaciones: Instalacion[] = [
   {
     slug: "burgos",
-    title: "Burgos",
-    desc: "Centro especializado en gestión de residuosubicado estratégicamente en Burgos para dar cobertura al norte de España.",
+    title: "Próximamente Nueva Instalación",
+    desc: "Centro especializado en gestión de residuos ubicado estratégicamente en el norte de España para dar cobertura regional.",
     image: "/brand/instalaciones/inst-burgos.jpg",
     location: {
       address: "Polígono Industrial Villímar, Parcela 15",
@@ -88,7 +88,7 @@ export const instalaciones: Instalacion[] = [
   },
   {
     slug: "el-romeral",
-    title: "Planta Principal El Romeral",
+    title: "Centro El Romeral",
     desc: "Nuestra instalación principal ubicada en El Romeral, Toledo, especializada en la gestión integral de residuos metálicos con tecnología de vanguardia.",
     image: "/brand/instalaciones/inst-1.jpg",
     videoId: "ONXvXOZNVRg", // INSTALACIONES EL ROMERAL
@@ -204,7 +204,7 @@ export const instalaciones: Instalacion[] = [
   },
   {
     slug: "coscollar",
-    title: "Depósito Temporal Coscollar",
+    title: "Centro Coscollar",
     desc: "Instalación de almacenamiento temporal en Coscollar, Aldaia, diseñada para garantizar la trazabilidad y seguridad en el manejo de residuos.",
     image: "/brand/instalaciones/inst-3.jpg",
     videoId: "DtmOxLUw-r0", // INSTALACIONES EL COSCOLLAR
@@ -238,7 +238,7 @@ export const instalaciones: Instalacion[] = [
       "Control de Accesos Biométrico"
     ],
     certifications: [
-      "Depósito Temporal Autorizado",
+      "Centro Autorizado",
       "Registro de Pequeños Productores",
       "Certificado de Prevención",
       "Autorización Municipal",
